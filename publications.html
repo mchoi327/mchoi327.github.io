@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Publications</title>
+  <title>Publications | Mingeun Choi</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?
+    family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Page‑specific styles -->
+  <style>
+    /* Hero banner for section title */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: 'Merriweather', serif;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+
+    /* Publication categories */
+    .pub-category {
+      margin: 3rem 0;
+    }
+    .pub-category h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+    }
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .pub-list li {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .pub-list a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    .pub-list a:hover {
+      text-decoration: underline;
+    }
+    .status {
+      color: #777;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,13 +71,122 @@
     </nav>
   </header>
 
-  <main>
+  <!-- Section Title -->
+  <section class="hero">
     <h1>Publications</h1>
-    <ul>
-      <li><a href="https://doi.org/…">논문 제목 1</a>, Journal Name, 2024</li>
-      <li><a href="https://doi.org/…">논문 제목 2</a>, Conference, 2023</li>
-      <!-- 추가 논문을 여기 계속 나열하세요 -->
-    </ul>
+  </section>
+
+  <main>
+    <!-- Refereed Journal Articles -->
+    <section class="pub-category">
+      <h2>Refereed Journal Articles</h2>
+      <ul class="pub-list">
+        <li>
+          <strong>M. Choi</strong> and S. Kumar, “Machine Learning‑Enabled Inversion of Thermophysical Properties in Optical Thermal Metrology,” <em>Annu. Rev. Heat Transfer</em>, <span class="status">submitted for publication</span>.
+        </li>
+        <li>
+          S. Krishnakumar, Y. Popryho, <strong>M. Choi</strong>, R. R. Khorasani, M. Swaminathan, S. Kumar, and I. Partin‑Vaisband, “A Comprehensive Design Framework for Vertical Power Delivery in High‑Performance Computing,” <em>IEEE Trans. Compon., Packag., Manuf. Technol.</em>, <span class="status">submitted for publication</span>.
+        </li>
+        <li>
+          P.‑C. Lee, <strong>M. Choi</strong>, D. Contreras Mora, K. Wang, S. Yun, D. Go, J. Dutta, D. Pal, S. Kumar, and A. C. Kummel, “High‑Speed AlN Film Deposition via Low‑Pressure HiPIMS Plus Kick for Enhanced Thermal Conductivity,” <em>Appl. Surf. Sci.</em>, <span class="status">submitted for publication</span>.
+        </li>
+        <li>
+          <strong>M. Choi</strong>, S. Krishnakumar, R. R. Khorasani, M. Swaminathan, I. Partin‑Vaisband, and S. Kumar, “Substrate‑Embedded Microfluidic Cooling of Distributed Vertical Power Delivery Architectures for High‑Performance Computing Processors,” <em>IEEE Trans. Compon., Packag., Manuf. Technol.</em>, <a href="https://doi.org/10.1109/TCPMT.2025.3544105" target="_blank">doi:10.1109/TCPMT.2025.3544105</a>.
+        </li>
+        <li>
+          P.‑C. Lee, A. J. McLeod, <strong>M. Choi</strong>, D. Vaca, D. Contreras Mora, K. Wang, S. Yun, J. Dutta, D. Pal, S. Kumar, and A. C. Kummel, “Achieving a High Thermally Conductive One Micron AlN Deposition by High Power Impulse Magnetron Sputtering Plus Kick,” <em>ACS Appl. Mater. Interfaces</em>, vol. 16, no. 20, pp. 26664–26673, May 2024, <a href="https://doi.org/10.1021/acsami.4c00993" target="_blank">doi:10.1021/acsami.4c00993</a>.
+        </li>
+        <li>
+          <strong>M. Choi</strong>, B. Goo, G. Cho, and S. J. Song, “Swirl Enhancement Effect on Turbine Rim Seal Performance,” <em>ASME J. Turbomach.</em>, vol. 146, no. 5, p. 051002, May 2024, <a href="https://doi.org/10.1115/1.4064230" target="_blank">doi:10.1115/1.4064230</a>.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Refereed Conference Proceedings -->
+    <section class="pub-category">
+      <h2>Refereed Conference Proceedings</h2>
+      <ul class="pub-list">
+        <li>
+          P.‑C. Lee et al., including <strong>M. Choi</strong>, “Novel Low Temperature Atomic Layer Annealing of Vertical Aligned Hexagonal Boron Nitride,” in <em>Proc. IEEE Int. Interconnect Technol. Conf. (IITC)</em>, <span class="status">to be published</span>.
+        </li>
+        <li>
+          <strong>M. Choi</strong> et al., “Automated Electro‑Thermal Modeling Framework of Distributed Vertical Power Delivery Architectures with Substrate‑Embedded Microfluidic Cooling,” in <em>Proc. 24th IEEE Intersoc. Conf. Thermal Thermomech. Phenomena Electron. Syst. (ITherm)</em>, Dallas, TX, USA, May 2025, <span class="status">to be published</span>.
+        </li>
+        <li>
+          <a href="https://doi.org/10.1109/IEDM50854.2024.10873584" target="_blank"><strong>(News Highlights)</strong> M. Choi</a> et al., “Fast Prediction of Spatio‑Temporal Temperature Profiles in FinFET Arrays via Numerical and Machine‑Learning Approaches,” in <em>Proc. IEEE Int. Electron Devices Meeting (IEDM)</em>, San Francisco, CA, USA, Dec. 2024.
+        </li>
+        <li>
+          Y. Im, J. Kim, <strong>M. Choi</strong> et al., “Parametric Thermal Design for Heterogeneously Integrated High‑Power Packages,” in <em>Proc. ASME InterPACK 2024</em>, San Jose, CA, USA, Oct. 2024, <a href="https://doi.org/10.1115/IPACK2024-141216" target="_blank">doi:10.1115/IPACK2024-141216</a>.
+        </li>
+        <li>
+          P.‑C. Lee, A. J. McLeod, <strong>M. Choi</strong> et al., “Thermal Conductivity Study of One Micron AlN Deposition by Bipolar High Power Impulse Magnetron Sputtering,” in <em>Proc. IEEE Int. Interconnect Technol. Conf. (IITC)</em>, San Jose, CA, USA, Jun. 2024, <a href="https://doi.org/10.1109/IITC61274.2024.10732369" target="_blank">doi:10.1109/IITC61274.2024.10732369</a>.
+        </li>
+        <li>
+          S. Krishnakumar, <strong>M. Choi</strong> et al., “Vertical Power Delivery for High Performance Computing Systems with Buck‑Derived Regulators,” in <em>Proc. IEEE 74th ECTC</em>, Denver, CO, USA, May 2024, <a href="https://doi.org/10.1109/ECTC51529.2024.00364" target="_blank">doi:10.1109/ECTC51529.2024.00364</a>.
+        </li>
+        <li>
+          <strong>M. Choi</strong> et al., “Thermal Analysis of High Current Vertical Power Delivery Network with Embedded Microchannel Cooling,” in <em>Proc. ITherm 2024</em>, Aurora, CO, USA, May 2024, <a href="https://doi.org/10.1109/ITherm55375.2024.10709419" target="_blank">doi:10.1109/ITherm55375.2024.10709419</a>.
+        </li>
+        <li>
+          S. Krishnakumar, <strong>M. Choi</strong> et al., “Design Considerations for DC‑DC Voltage Regulators in Distributed Vertical Power Delivery Systems,” in <em>Proc. IEEE ISCAS</em>, Singapore, May 2024, <a href="https://doi.org/10.1109/ISCAS58744.2024.10558456" target="_blank">doi:10.1109/ISCAS58744.2024.10558456</a>.
+        </li>
+        <li>
+          P.‑C. Lee, A. J. McLeod, <strong>M. Choi</strong> et al., “High Thermally Conductive, High‑Speed Deposition of AlN by Bipolar HPIMS,” in <em>Proc. IEEE VLSI‑TSA</em>, Hsinchu, Taiwan, Apr. 2024, <a href="https://doi.org/10.1109/VLSITSA60681.2024.10546374" target="_blank">doi:10.1109/VLSITSA60681.2024.10546374</a>.
+        </li>
+        <li>
+          <strong>M. Choi</strong>, B. Goo, G. Cho, and S. J. Song, “Swirl Enhancement Effect on Turbine Rim Seal Performance,” in <em>Proc. ASME Turbo Expo 2023</em>, Boston, MA, USA, Jun. 2023, <a href="https://doi.org/10.1115/GT2023-101389" target="_blank">doi:10.1115/GT2023-101389</a>.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Conference Presentations -->
+    <section class="pub-category">
+      <h2>Conference Presentations</h2>
+      <ul class="pub-list">
+        <li>
+          D. Contreras Mora, P.‑C. Lee, <strong>M. Choi</strong>, “Low Pressure HiPIMS + Kick AlN Deposition with Ultra High Growth Rate,” Gov. Microcircuit Appl. Critical Technol. Conf. (GOMACTech) 2025, Pasadena, CA, Mar 17–20, 2025.
+        </li>
+        <li>
+          P.‑C. Lee et al., including <strong>M. Choi</strong>, “Enhancing AlN Crystallographic Properties and Thermal Conductivity Using HiPIMS + Kick Deposition,” GOMACTech 2024, Charleston, SC, Mar 18–21, 2024.
+        </li>
+        <li>
+          P.‑C. Lee et al., including <strong>M. Choi</strong>, “Achieving a High Thermal Conductive One Micron AlN Deposition by High Power Impulse Magnetron Sputtering Plus Kick,” 54th IEEE SISC, San Diego, CA, Dec 13–16, 2023.
+        </li>
+        <li>
+          J. Pak, S. Oh, and <strong>M. Choi</strong>, “Computational Modeling for Investigating Flow Instabilities in Gas Turbine Rim Seals,” KSPE Spring Conf. 2020 (Online), Jul 16–17, 2020.
+        </li>
+        <li>
+          <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Design of a Low‑Speed Single‑Stage Turbine Facility for Ingress Measurement,” IGTC 2019 Tokyo, Nov 17–22, 2019.
+        </li>
+        <li>
+          <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Sealing Performance Measurement of Single Radial‑Clearance Rim Seal,” KFMA Annu. Meeting 2018, Nov 28–30, 2018.
+        </li>
+        <li>
+          <strong>M. Choi</strong>, H. R. Kim, S. Kim, G. Cho, and S. J. Song, “Measurement of Double‑Clearance Rim Seal Performance to Prevent Hot Gas Ingestion in Large‑Scale Gas Turbines,” KFMA Annu. Meeting 2018, Jul 4–6, 2018.
+        </li>
+        <li>
+          <a href="https://me.snu.ac.kr/%ed%95%99%eb%b6%80%eb%89%b4%ec%8a%a4/document/11014/?pageid=46#none" target="_blank">
+            <strong>(Best Presentation Award)</strong> M. Choi, G. Cho, and S. J. Song, “Rebuilding of 1‑Stage Axial Turbine Rim Seal Test Facility in Seoul National University,” KFMA Annu. Meeting 2018, Jul 4–6, 2018.
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Patents -->
+    <section class="pub-category">
+      <h2>Patents</h2>
+      <ul class="pub-list">
+        <li>
+          P.‑C. Lee, <strong>M. Choi</strong>, D. Contreras Mora, D. Go, S. Kumar, and A. C. Kummel, “Low‑Pressure HiPIMS Method for Rapid Deposition of High‑Thermal Conductivity Aluminum Nitride Film,” U.S. Provisional Patent Application 63/710,945, filed Oct 23, 2024.
+        </li>
+        <li>
+          <strong>M. Choi</strong> and S. J. Song, “Gas Turbine Engine with Improved Flow Stability and Cooling Efficiency,” Republic of Korea Patent 10‑2206447, filed Oct 8, 2020; issued Jan 18, 2021, <a href="https://doi.org/10.8080/1020200130286" target="_blank">doi:10.8080/1020200130286</a>.
+        </li>
+        <li>
+          <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Gas Turbine Engine with Improved Sealing and Operability,” Republic of Korea Patent 10‑2202368, filed Sep 16, 2020; issued Jan 7, 2021, <a href="https://doi.org/10.8080/1020200119006" target="_blank">doi:10.8080/1020200119006</a>.
+        </li>
+      </ul>
+    </section>
   </main>
 
   <footer>
