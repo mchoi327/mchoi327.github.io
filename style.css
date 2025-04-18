@@ -126,3 +126,46 @@ footer {
   font-size: 0.9rem;
   margin-top: 2rem;
 }
+
+/* 햄버거 메뉴 버튼 초기 숨김 */
+.site-header .menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* 768px 이하일 때 */
+@media (max-width: 768px) {
+  /* 로고와 토글 버튼만 한 줄에 */
+  .site-header {
+    justify-content: space-between;
+  }
+
+  /* 내비게이션 숨김 */
+  .site-header nav {
+    display: none;
+    flex-direction: column;
+    background: var(--gt-navy);
+    width: 100%;
+  }
+
+  /* 토글 버튼 보이기 */
+  .site-header .menu-toggle {
+    display: block;
+  }
+
+  /* 토글된 상태에서 nav 드롭다운 */
+  .site-header nav.open {
+    display: flex;
+  }
+
+  /* nav 링크들 중앙 정렬 */
+  .site-header nav a {
+    padding: 0.75rem 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 0;
+  }
+}
+
