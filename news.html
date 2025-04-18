@@ -42,8 +42,8 @@
     }
     .news-image {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: auto;      /* fluid scaling */
+      display: block;
     }
     .news-content {
       padding: 1.5rem;
@@ -90,22 +90,16 @@
 </head>
 <body>
 
-  <body>
-    <!-- placeholder where your header will land -->
-    <div id="site-header"></div>
-  
-    <!-- load-and-inject logic -->
-    <script>
-      fetch('header.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('site-header').innerHTML = html;
-        })
-        .catch(err => console.error('Header load failed:', err));
-    </script>
-  
-    <!-- rest of your page… -->
-  </body>
+  <!-- Header include -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      })
+      .catch(err => console.error('Header load failed:', err));
+  </script>
 
   <!-- Section Title -->
   <section class="hero">
@@ -117,7 +111,6 @@
 
       <!-- Example News Card -->
       <article class="news-card">
-        <!-- Place the downloaded image here -->
         <img src="images/iedm-2024.webp"
              alt="ECE at IEDM 2024"
              class="news-image">
@@ -144,8 +137,8 @@
         </div>
       </article>
 
-      <!-- You can duplicate the <article> block for each new item -->
-      
+      <!-- Duplicate this <article> block for each new news item -->
+
     </section>
   </main>
 
