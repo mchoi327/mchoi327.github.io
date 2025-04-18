@@ -65,6 +65,18 @@
       .catch(err => console.error('Header load failed:', err));
   </script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.querySelector('.site-header .menu-toggle');
+      const nav = document.querySelector('.site-header nav');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          nav.classList.toggle('open');
+        });
+      }
+    });
+  </script>
+  
   <!-- Section Title -->
   <section class="hero">
     <h1>About Me</h1>
