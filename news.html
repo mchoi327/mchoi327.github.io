@@ -90,14 +90,22 @@
 </head>
 <body>
 
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="news.html">News</a>
-      <a href="publications.html">Publications</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
+  <body>
+    <!-- placeholder where your header will land -->
+    <div id="site-header"></div>
+  
+    <!-- load-and-inject logic -->
+    <script>
+      fetch('header.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('site-header').innerHTML = html;
+        })
+        .catch(err => console.error('Header load failed:', err));
+    </script>
+  
+    <!-- rest of your page… -->
+  </body>
 
   <!-- Section Title -->
   <section class="hero">
