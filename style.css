@@ -32,13 +32,20 @@ header.site-header {
   position: sticky;
   top: 0;
   z-index: 100;
+  flex-wrap: wrap;
 }
 header.site-header .logo {
   max-height: 50px;
   width: auto;
   display: block;
-  position: relative;
-  z-index: 101;
+  margin-bottom: 0.5rem;
+}
+header.site-header .menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
 }
 header.site-header nav {
   display: flex;
@@ -49,6 +56,7 @@ header.site-header nav a {
   margin-left: 1.5rem;
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5rem 0;
 }
 header.site-header nav a:hover {
   text-decoration: underline;
@@ -127,45 +135,58 @@ footer {
   margin-top: 2rem;
 }
 
-/* 햄버거 메뉴 버튼 초기 숨김 */
-.site-header .menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: white;
-}
-
-/* 768px 이하일 때 */
+/* ===== RESPONSIVE: MOBILE (≤768px) ===== */
 @media (max-width: 768px) {
-  /* 로고와 토글 버튼만 한 줄에 */
-  .site-header {
-    justify-content: space-between;
+  /* Header vertical layout */
+  header.site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
   }
-
-  /* 내비게이션 숨김 */
-  .site-header nav {
+  header.site-header .logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  header.site-header .menu-toggle {
+    display: block;
+    align-self: flex-end;
+  }
+  header.site-header nav {
     display: none;
     flex-direction: column;
-    background: var(--gt-navy);
     width: 100%;
+    background: var(--gt-navy);
   }
-
-  /* 토글 버튼 보이기 */
-  .site-header .menu-toggle {
-    display: block;
-  }
-
-  /* 토글된 상태에서 nav 드롭다운 */
-  .site-header nav.open {
+  header.site-header nav.open {
     display: flex;
   }
-
-  /* nav 링크들 중앙 정렬 */
-  .site-header nav a {
-    padding: 0.75rem 1.5rem;
+  header.site-header nav a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
     border-top: 1px solid rgba(255,255,255,0.1);
     margin: 0;
   }
+  /* Hero adjustments */
+  .hero {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  .hero-inner {
+    flex-direction: column;
+  }
+  .profile-photo {
+    margin: 0 auto 1rem;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  /* Main content padding */
+  main {
+    padding: 0 1rem;
+  }
 }
-
