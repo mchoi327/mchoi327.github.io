@@ -6,70 +6,110 @@
   <title>Mingeun Choi | PhD Candidate in Mechanical Engineering</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?
-    family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Hero‑only CSS tweak -->
+  <!-- Hero & Header CSS -->
   <style>
+    /* Header */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 2rem;
+      background: #052D6B;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .site-header .logo {
+      height: 50px;
+    }
+    .site-header nav a {
+      color: #fff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+    }
+
+    /* Hero */
     .hero {
-      /* Soft two‑tone gradient */
       background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 6rem 2rem;
-      text-align: center;
+      text-align: left;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      max-width: 900px;
+      width: 100%;
+    }
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #2c3e50;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-right: 2rem;
+    }
+    .hero-text h1 {
       font-family: 'Merriweather', serif;
-    }
-    .hero h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
       color: #2c3e50;
-      line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
-    .hero p {
+    .hero-text p {
+      font-family: 'Open Sans', sans-serif;
       font-size: 1.25rem;
-      font-weight: 300;
       color: #555;
-      max-width: 600px;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+    .hero-text .btn {
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      background: #FEC516;
+      color: #052D6B;
+      font-weight: 600;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
 
-  <body>
-    <!-- placeholder where your header will land -->
-    <div id="site-header"></div>
-  
-    <!-- load-and-inject logic -->
-    <script>
-      fetch('header.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('site-header').innerHTML = html;
-        })
-        .catch(err => console.error('Header load failed:', err));
-    </script>
-  
-    <!-- rest of your page… -->
-  </body>
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+      })
+      .catch(err => console.error('Header load failed:', err));
+  </script>
 
-  <!-- CSS‑only Hero Section -->
   <section class="hero">
-    <h1>Mingeun Choi</h1>
-    <p>PhD Candidate in Mechanical Engineering at Georgia Tech, specializing in electro‑thermal modeling and thermoreflectance methods.</p>
-    <a href="publications.html" class="btn">View Publications</a>
+    <div class="hero-inner">
+      <img src="images/40 반명함.jpg" alt="Mingeun Choi" class="profile-photo">
+      <div class="hero-text">
+        <h1>Mingeun Choi</h1>
+        <p>PhD Candidate in Mechanical Engineering at Georgia Tech,<br>
+           specializing in electro‑thermal modeling &amp; thermoreflectance methods.</p>
+        <a href="publications.html" class="btn">View Publications</a>
+      </div>
+    </div>
   </section>
 
   <main>
     <section>
       <h2>Welcome</h2>
       <p class="lead">
-        I combine advanced simulation and experimental techniques to tackle thermal challenges in high‑performance computing. Currently, my research focuses on substrate‑embedded microfluidic cooling for next‑generation vertical power delivery architectures.
+        I combine advanced simulation and experimental techniques to tackle thermal challenges in high‑performance computing.
+        Currently, my research focuses on substrate‑embedded microfluidic cooling for next‑generation vertical power delivery architectures.
       </p>
     </section>
 
@@ -86,6 +126,5 @@
   <footer>
     © Mingeun Choi 2025
   </footer>
-
 </body>
 </html>
