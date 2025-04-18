@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>내 학술 홈페이지</title>
+  <title>Mingeun Choi | PhD Candidate in Mechanical Engineering</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?
+    family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Hero‑only CSS tweak -->
+  <style>
+    .hero {
+      /* Soft two‑tone gradient */
+      background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem;
+      text-align: center;
+      font-family: 'Merriweather', serif;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #555;
+      max-width: 600px;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,17 +49,28 @@
     </nav>
   </header>
 
+  <!-- CSS‑only Hero Section -->
+  <section class="hero">
+    <h1>Mingeun Choi</h1>
+    <p>PhD Candidate in Mechanical Engineering at Georgia Tech, specializing in electro‑thermal modeling and thermoreflectance methods.</p>
+    <a href="publications.html" class="btn">View Publications</a>
+  </section>
+
   <main>
-    <h1>안녕하세요, 저는 Mingeun Choi입니다</h1>
-    <p>Georgia Tech 기계공학 박사과정, 열전달 및 전열 메타롤로지 연구 중.</p>
+    <section>
+      <h2>Welcome</h2>
+      <p class="lead">
+        I combine advanced simulation and experimental techniques to tackle thermal challenges in high‑performance computing. Currently, my research focuses on substrate‑embedded microfluidic cooling for next‑generation vertical power delivery architectures.
+      </p>
+    </section>
 
     <section>
-      <h2>Contact & Profiles</h2>
-      <ul>
-        <li><a href="https://scholar.google.com/…">Google Scholar</a></li>
-        <li><a href="https://github.com/yourusername">GitHub</a></li>
-        <li><a href="mailto:you@example.com">Email</a></li>
-      </ul>
+      <h2>Connect</h2>
+      <div class="profiles">
+        <a href="https://scholar.google.com/…" target="_blank">Google Scholar</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="mailto:you@example.com">Email</a>
+      </div>
     </section>
   </main>
 
