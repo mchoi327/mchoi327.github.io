@@ -66,7 +66,17 @@
   <script>
     fetch('header.html')
       .then(res => res.text())
-      .then(html => { document.getElementById('site-header').innerHTML = html; })
+      .then(html => {
+        const container = document.getElementById('site-header');
+        container.innerHTML = html;
+  
+        // 여기서 바로 토글 이벤트 바인딩
+        const btn = container.querySelector('.menu-toggle');
+        const nav = container.querySelector('nav');
+        if (btn && nav) {
+          btn.addEventListener('click', () => nav.classList.toggle('open'));
+        }
+      })
       .catch(err => console.error('Header load failed:', err));
   </script>
 
