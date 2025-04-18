@@ -12,8 +12,9 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- Page‑specific styles (reusing .hero and .pub-category/.pub-list) -->
+  <!-- Page‑specific styles matching publications.html -->
   <style>
+    /* Hero banner for section title */
     .hero {
       background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
       text-align: center;
@@ -26,7 +27,10 @@
       color: #2c3e50;
     }
 
-    /* Section heading styling matches publications and news */
+    /* Section wrapper */
+    .pub-category {
+      margin: 3rem 0;
+    }
     .pub-category h2 {
       font-family: 'Merriweather', serif;
       font-size: 1.75rem;
@@ -36,13 +40,14 @@
       padding-bottom: 0.25rem;
       margin-bottom: 1rem;
     }
-    /* Reuse pub-list for lists */
+
+    /* List styling */
     .pub-list {
       list-style: none;
       padding-left: 0;
     }
     .pub-list li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       line-height: 1.5;
       color: #555;
       font-family: 'Open Sans', sans-serif;
@@ -51,7 +56,7 @@
 </head>
 <body>
 
-  <!-- Header include -->
+  <!-- shared header -->
   <div id="site-header"></div>
   <script>
     fetch('header.html')
@@ -62,21 +67,20 @@
       .catch(err => console.error('Header load failed:', err));
   </script>
 
-  <!-- Hero Section -->
+  <!-- Section Title -->
   <section class="hero">
     <h1>About Me</h1>
   </section>
 
-  <main class="container mx-auto p-4">
-
+  <main>
     <!-- Appointments -->
     <section class="pub-category">
       <h2>Appointments</h2>
       <ul class="pub-list">
         <li>
           <strong>Republic of Korea Air Force Academy</strong><br>
-          Assistant Professor (First Lieutenant), Jun 2020 – May 2022<br>
-          Instructor (Second Lieutenant), Jun 2019 – May 2020
+          Assistant Professor (First Lieutenant), Jun 2020 – May 2022<br>
+          Instructor (Second Lieutenant), Jun 2019 – May 2020
         </li>
       </ul>
     </section>
@@ -105,23 +109,21 @@
     <!-- Research Interests -->
     <section class="pub-category">
       <h2>Research Interests</h2>
-      <p>
-        My research focuses on developing advanced thermal management solutions for heterogeneously
-        integrated electronics, addressing both macro‑ and micro‑scale challenges. At the macro level,
-        I design vertical power delivery architectures with substrate‑embedded microfluidic cooling to
-        support thermally sustainable operation in 3D‑stacked processors. At the micro level, I
-        investigate high‑thermal‑conductivity thin films as heat spreaders for localized hotspots,
-        employing rapid, low‑temperature, low‑pressure deposition techniques. I am also developing a
-        machine learning–accelerated multi‑scale modeling framework that speeds up spatio‑temporal
-        temperature predictions in FinFET arrays for real‑time layout optimization.
-      </p>
+      <ul class="pub-list">
+        <li>
+          My research focuses on developing advanced thermal management solutions for heterogeneously
+          integrated electronics, addressing both macro‑ and micro‑scale challenges. At the macro level,
+          I design vertical power delivery architectures with substrate‑embedded microfluidic cooling.
+          At the micro level, I investigate high‑thermal‑conductivity thin films as heat spreaders for
+          localized hotspots, and develop a machine learning–accelerated multi‑scale modeling framework
+          for real‑time temperature prediction in FinFET arrays.
+        </li>
+      </ul>
     </section>
-
   </main>
 
   <footer>
     © Mingeun Choi 2025
   </footer>
-
 </body>
 </html>
