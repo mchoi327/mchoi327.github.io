@@ -34,12 +34,14 @@ header.site-header {
   z-index: 100;
   flex-wrap: wrap;
 }
+
 header.site-header .logo {
   max-height: 50px;
   width: auto;
   display: block;
   margin-bottom: 0.5rem;
 }
+
 header.site-header .menu-toggle {
   display: none;
   background: none;
@@ -47,10 +49,12 @@ header.site-header .menu-toggle {
   font-size: 1.5rem;
   color: white;
 }
+
 header.site-header nav {
   display: flex;
   align-items: center;
 }
+
 header.site-header nav a {
   color: white;
   margin-left: 1.5rem;
@@ -58,6 +62,7 @@ header.site-header nav a {
   font-weight: bold;
   padding: 0.5rem 0;
 }
+
 header.site-header nav a:hover {
   text-decoration: underline;
 }
@@ -71,12 +76,14 @@ header.site-header nav a:hover {
   padding: 6rem 2rem;
   text-align: left;
 }
+
 .hero-inner {
   display: flex;
   align-items: center;
   max-width: 900px;
   width: 100%;
 }
+
 .profile-photo {
   width: 180px;
   height: 180px;
@@ -87,12 +94,14 @@ header.site-header nav a:hover {
   object-fit: cover;
   object-position: center;
 }
+
 .hero-text h1 {
   font-family: 'Merriweather', serif;
   font-size: 3rem;
   color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
+
 .hero-text p {
   font-family: var(--font-sans);
   font-size: 1.25rem;
@@ -100,6 +109,7 @@ header.site-header nav a:hover {
   line-height: 1.4;
   margin-bottom: 1.5rem;
 }
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -116,12 +126,15 @@ main {
   margin: 2rem auto;
   padding: 0 1rem;
 }
+
 h1, h2, h3 {
   margin-bottom: 0.5rem;
 }
+
 a {
   color: var(--color-accent);
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -149,8 +162,14 @@ footer {
     margin-bottom: 0.5rem;
   }
   header.site-header .menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
     align-self: flex-end;
+  }
+  header.site-header .menu-toggle .icon {
+    font-size: 1.5rem;
   }
   header.site-header nav {
     display: none;
@@ -178,6 +197,7 @@ footer {
   }
   .profile-photo {
     margin: 0 auto 1rem;
+    margin-right: 0;
   }
   .hero-text h1 {
     font-size: 2rem;
