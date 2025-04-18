@@ -34,7 +34,8 @@ header.site-header {
   z-index: 100;
 }
 header.site-header .logo {
-  height: 50px;
+  max-height: 50px;
+  width: auto;
   display: block;
   position: relative;
   z-index: 101;
