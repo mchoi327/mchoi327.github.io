@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>News | Mingeun Choi</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?
+    family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Page‑specific styles -->
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: 'Merriweather', serif;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+
+    .news-list {
+      max-width: 800px;
+      margin: 2rem auto;
+      display: grid;
+      gap: 2rem;
+    }
+    .news-card {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .news-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .news-content {
+      padding: 1.5rem;
+    }
+    .news-content h3 {
+      margin-top: 0;
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+    .news-content h3 a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .news-content h3 a:hover {
+      text-decoration: underline;
+    }
+    .news-content time {
+      display: block;
+      margin-bottom: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    .news-content p {
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+      color: #555;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .news-content .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      background: #3498db;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .news-content .btn:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="publications.html">Publications</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Section Title -->
+  <section class="hero">
+    <h1>Latest News</h1>
+  </section>
+
+  <main>
+    <section class="news-list">
+
+      <!-- Example News Card -->
+      <article class="news-card">
+        <!-- Place the downloaded image here -->
+        <img src="images/iedm-2024.jpg"
+             alt="ECE at IEDM 2024"
+             class="news-image">
+
+        <div class="news-content">
+          <h3>
+            <a href="https://ece.gatech.edu/news/2024/11/ece-set-big-weekend-iedm-2024"
+               target="_blank">
+              ECE Set for Big Weekend at IEDM 2024
+            </a>
+          </h3>
+          <time datetime="2024-11-26">November 26, 2024</time>
+          <p>
+            Georgia Tech’s School of ECE will showcase multiple research
+            presentations—including one by PhD candidate
+            <strong>Mingeun Choi</strong>—at the IEEE IEDM conference in
+            San Francisco. Click below to read the official ECE news post.
+          </p>
+          <a href="https://ece.gatech.edu/news/2024/11/ece-set-big-weekend-iedm-2024"
+             target="_blank"
+             class="btn">
+            Read More
+          </a>
+        </div>
+      </article>
+
+      <!-- You can duplicate the <article> block for each new item -->
+      
+    </section>
+  </main>
+
+  <footer>
+    © Mingeun Choi 2025
+  </footer>
+
+</body>
+</html>
