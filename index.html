@@ -114,34 +114,6 @@
       /* SCSS의 darken() 대신 순수 CSS로 간단하게: */
       background: rgba(0,0,0,0.1);
     }
-    /* make the button auto-width so text fits */
-    .cv-btn {
-      width: auto;
-      padding: 0.5rem 0.75rem; /* tweak to taste */
-    }
-    
-    /* align icon + text inline */
-    .cv-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem; /* space between icon and "CV" */
-    }
-    
-    /* ensure SVG scales with the btn color */
-    .cv-btn svg {
-      width: 1.25rem;   /* 20px */
-      height: 1.25rem;
-      flex-shrink: 0;
-    }
-    
-    /* style the "CV" text */
-    .cv-text {
-      font-size: 0.875rem;  /* ~14px */
-      font-weight: 600;
-      color: inherit;       /* use the btn’s white color */
-      line-height: 1;
-    }
-
   </style>
 </head>
 <body>
@@ -190,6 +162,11 @@
         <a href="https://scholar.google.com/citations?user=wykhM08AAAAJ&hl=en" class="icon-btn" aria-label="Google Scholar">
           <i class="fa-solid fa-graduation-cap"></i>
         </a>
+      
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/mingeunchoi/" class="icon-btn" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
 
         <!-- GitHub -->
         <a href="https://github.com/mchoi327"
@@ -198,36 +175,9 @@
           <i class="fa-brands fa-github"></i>
         </a>
         
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/mingeunchoi/" class="icon-btn" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-      
         <!-- CV 다운로드 -->
-        <!--
         <a href="https://www.linkedin.com/in/mingeunchoi/" class="icon-btn" aria-label="Download CV">
           <i class="fa-solid fa-file-arrow-down"></i>
-        </a>
-        -->
-        <a 
-          href="/CV.pdf" 
-          class="icon-btn cv-btn" 
-          aria-label="Download CV" 
-          target="_blank"
-        >
-          <!-- ① Just the page icon -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24" 
-            height="24"
-            fill="currentColor"
-          >
-            <path d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
-          </svg>
-        
-          <!-- ② Real text label -->
-          <span class="cv-text">CV</span>
         </a>
 
         <!-- Email -->
