@@ -10,6 +10,15 @@
         rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
+  <!-- head 에 Font Awesome CSS 추가 -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pVI+4pFnhVMfIzp9AA4VtV5mxAI1HxIoFpFgYyp1+FwXHgk52M+T6htfsDJ6Zi2N/xyCqjPypTP5XCiT6U2gYg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
   <!-- Page‑specific styles -->
   <style>
     /* Hero */
@@ -31,12 +40,7 @@
       gap: 2rem;
       margin: 0 auto; /* 가운데 정렬 유지 */
     }
-    .profile-photo {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      object-position: center;
-    }
+
     /* ① wrapper는 고정 크기·원형 마스크 역할만 */
     .photo-wrapper {
       /* 기존 180px → 220px로 확대 */
@@ -80,6 +84,30 @@
       font-weight: 600;
       border-radius: 4px;
     }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;    /* 버튼 사이 간격 */
+      margin-top: 1.5rem;
+    }
+    
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.25rem; /* 아이콘 크기 */
+      transition: background 0.2s;
+    }
+    .icon-btn:hover {
+      /* SCSS의 darken() 대신 순수 CSS로 간단하게: */
+      background: rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -103,17 +131,56 @@
       .catch(err => console.error('Header load failed:', err));
   </script>
 
-  <!-- Hero Section -->
   <section class="hero">
-  <div class="hero-inner">
+    <div class="hero-inner">
       <div class="photo-wrapper">
-        <img src="images/profile-image.jpg" alt="Mingeun Choi" class="profile-photo">
+        <img 
+          src="images/profile-image.jpg" 
+          alt="Mingeun Choi" 
+          class="profile-photo"
+        >
       </div>
       <div class="hero-text">
-        <h1>Mingeun Choi</h1>
-        <p>PhD Student in Mechanical Engineering at Georgia Tech,<br>
-           specializing in electro‑thermal modeling &amp; thermoreflectance methods.</p>
-        <a href="publications.html" class="btn">View Publications</a>
+        <h1>Mingeun Choi</h1>
+        <p>
+          PhD Student in Mechanical Engineering at Georgia Tech,<br>
+          specializing in electro-thermal modeling &amp; thermoreflectance methods.
+        </p>
+        
+        <div class="hero-ctas">
+          <!-- 기존 Publications 버튼 -->
+          <a href="publications.html" class="btn">View Publications</a>
+  
+          <!-- Google Scholar -->
+          <a 
+            href="https://scholar.google.com/citations?user=wykhM08AAAAJ" 
+            target="_blank"
+            class="icon-btn" 
+            aria-label="Google Scholar"
+          >
+            <i class="fas fa-graduation-cap"></i>
+          </a>
+  
+          <!-- LinkedIn -->
+          <a 
+            href="https://www.linkedin.com/in/your-profile" 
+            target="_blank"
+            class="icon-btn" 
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+  
+          <!-- Download CV -->
+          <a 
+            href="/CV.pdf" 
+            target="_blank" 
+            class="icon-btn" 
+            aria-label="Download CV"
+          >
+            <i class="fas fa-file-download"></i>
+          </a>
+        </div>
       </div>
     </div>
   </section>
