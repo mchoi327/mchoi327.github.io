@@ -57,6 +57,28 @@
       color: #777;
       font-style: italic;
     }
+
+    /* Buttons under each publication */
+    .pub-buttons {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .pub-buttons .btn-sm {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .bibtex, .abstract {
+      display: none;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .abstract { font-family: 'Open Sans', sans-serif; }
   </style>
 </head>
 <body>
@@ -101,6 +123,24 @@
         </li>
         <li>
           <strong>M. Choi</strong>, S. Krishnakumar, R. R. Khorasani, M. Swaminathan, I. Partin‑Vaisband, and S. Kumar, “Substrate‑Embedded Microfluidic Cooling of Distributed Vertical Power Delivery Architectures for High‑Performance Computing Processors,” <em>IEEE Trans. Compon., Packag., Manuf. Technol.</em>, <a href="https://doi.org/10.1109/TCPMT.2025.3544105" target="_blank">doi:10.1109/TCPMT.2025.3544105</a>.
+          <!-- 버튼 그룹: DOI, BIB, ABSTRACT -->
+          <div class="pub-buttons">
+            <a href="https://doi.org/10.1109/TCPMT.2025.3544105" target="_blank">
+              <button class="btn-sm">DOI</button>
+            </a>
+            <a href="bib/kim2025substrate.bib" download>
+              <button class="btn-sm">BIB</button>
+            </a>
+            <button class="btn-sm btn-abstract">ABSTRACT</button>
+          </div>
+  
+          <!-- Abstract 텍스트 (초기엔 숨김) -->
+          <div class="abstract">
+            In this work, we present a substrate-embedded microfluidic cooling framework for 
+            distributed vertical power delivery architectures, demonstrating up to 35% temperature 
+            reduction under heavy compute workloads…
+          </div>
+        
         </li>
         <li>
           P.‑C. Lee, A. J. McLeod, <strong>M. Choi</strong>, D. Vaca, D. Contreras Mora, K. Wang, S. Yun, J. Dutta, D. Pal, S. Kumar, and A. C. Kummel, “Achieving a High Thermally Conductive One Micron AlN Deposition by High Power Impulse Magnetron Sputtering Plus Kick,” <em>ACS Appl. Mater. Interfaces</em>, vol. 16, no. 20, pp. 26664–26673, May 2024, <a href="https://doi.org/10.1021/acsami.4c00993" target="_blank">doi:10.1021/acsami.4c00993</a>.
@@ -201,5 +241,16 @@
   <footer>
     © Mingeun Choi 2025
   </footer>
+  
+  <script>
+    document.querySelectorAll('.btn-abstract').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // 버튼의 바로 아래 형제 elem인 .abstract를 찾아 display 토글
+        const abs = btn.parentElement.nextElementSibling;
+        abs.style.display = (abs.style.display === 'block') ? 'none' : 'block';
+      });
+    });
+  </script>
+
 </body>
 </html>
