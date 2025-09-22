@@ -3,15 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Publications | Mingeun Choi</title>
+  <title>Publications | Mingeun Choi</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap"
         rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Page‑specific styles -->
+  <!-- Page-specific styles -->
   <style>
+    /* Base font unification */
+    body, button, .btn-sm, .badge {
+      font-family: 'Open Sans', sans-serif;
+    }
+
     /* Hero banner for section title */
     .hero {
       background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
@@ -26,9 +31,7 @@
     }
 
     /* Publication categories */
-    .pub-category {
-      margin: 3rem 0;
-    }
+    .pub-category { margin: 3rem 0; }
     .pub-category h2 {
       font-family: 'Merriweather', serif;
       font-size: 1.75rem;
@@ -38,25 +41,11 @@
       padding-bottom: 0.25rem;
       margin-bottom: 1rem;
     }
-    .pub-list {
-      list-style: none;
-      padding-left: 0;
-    }
-    .pub-list li {
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-    .pub-list a {
-      color: var(--color-accent);
-      text-decoration: none;
-    }
-    .pub-list a:hover {
-      text-decoration: underline;
-    }
-    .status {
-      color: #777;
-      font-style: italic;
-    }
+    .pub-list { list-style: none; padding-left: 0; }
+    .pub-list li { margin-bottom: 1rem; line-height: 1.5; }
+    .pub-list a { color: var(--color-accent); text-decoration: none; }
+    .pub-list a:hover { text-decoration: underline; }
+    .status { color: #777; font-style: italic; }
 
     /* Buttons under each publication */
     .pub-buttons {
@@ -64,11 +53,23 @@
       display: flex;
       gap: 0.5rem;
     }
+    /* Button reset + typography match to badges */
     .pub-buttons .btn-sm {
-      padding: 0.25rem 0.5rem;
-      font-size: 0.875rem;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid var(--color-accent);
+      background: transparent;
+      color: var(--color-accent);
+      padding: 0.2rem 0.5rem;     /* match badges */
+      border-radius: 0.25rem;     /* match badges */
+      font-size: 0.75rem;         /* match badges */
+      line-height: 1;             /* match badges */
+      font-weight: 600;           /* match badges */
       cursor: pointer;
+      vertical-align: middle;     /* align with badges */
     }
+    .pub-buttons .btn-sm:hover { background: rgba(0,0,0,0.04); }
+
     .bibtex, .abstract {
       display: none;
       margin: 0.5rem 0;
@@ -80,42 +81,43 @@
     }
     .abstract { font-family: 'Open Sans', sans-serif; }
 
-    /* 공통 배지 기반 */
+    /* Badges: shared base */
     .badge {
       display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
       padding: 0.2rem 0.5rem;
       border-radius: 0.25rem;
       margin-right: 0.5rem;
       vertical-align: middle;
       text-decoration: none;
+      font-size: 0.75rem;
+      line-height: 1;
+      font-weight: 600;
     }
-    
-    /* Best Paper (링크 가능) */
+
+    /* Best Paper (linkable, always white text) */
     .badge-best,
     .badge-best:link,
     .badge-best:visited,
     .badge-best:hover,
     .badge-best:active {
-      background-color: #c00; /* 진한 빨강 */
-      color: #fff;            /* 항상 흰색 텍스트 */
-      text-decoration: none;  /* 밑줄 제거 */
+      background-color: #c00; /* deep red */
+      color: #fff;            /* force white text */
+      text-decoration: none;  /* no underline */
     }
-    
-    /* News Release (링크) - 더 선명한 파란색 */
+
+    /* News Release (linkable, vivid blue, white text) */
     .badge-news,
     .badge-news:link,
     .badge-news:visited,
     .badge-news:hover,
     .badge-news:active {
-      background-color: #0066ff; /* 새파란색 */
-      color: #fff;               /* 항상 흰색 텍스트 */
-      text-decoration: none;     /* 밑줄 제거 */
+      background-color: #0066ff; /* vivid blue */
+      color: #fff;               /* force white text */
+      text-decoration: none;     /* no underline */
     }
-      
   </style>
 </head>
+
 <body>
 
   <!-- shared header -->
