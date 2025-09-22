@@ -12,6 +12,16 @@
 
   <!-- Page-specific styles -->
   <style>
+    /* === UI scale variables for consistent sizing === */
+    :root{
+      --ui-font-size: 0.875rem;     /* badge & small button text size */
+      --ui-line: 1.2;               /* line-height multiplier */
+      --ui-pad-y: 0.28rem;          /* vertical padding */
+      --ui-pad-x: 0.6rem;           /* horizontal padding */
+      --ui-radius: 0.35rem;         /* corner radius */
+      --abstract-minh: 4.75rem;     /* min height for abstract/bib blocks */
+    }
+
     /* Base font unification */
     body, button, .btn-sm, .badge {
       font-family: 'Open Sans', sans-serif;
@@ -52,24 +62,31 @@
       margin-top: 0.5rem;
       display: flex;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
-    /* Button reset + typography match to badges */
+    /* Button reset + match to badges, identical height */
     .pub-buttons .btn-sm {
       appearance: none;
       -webkit-appearance: none;
       border: 1px solid var(--color-accent);
       background: transparent;
       color: var(--color-accent);
-      padding: 0.2rem 0.5rem;     /* match badges */
-      border-radius: 0.25rem;     /* match badges */
-      font-size: 0.75rem;         /* match badges */
-      line-height: 1;             /* match badges */
-      font-weight: 600;           /* match badges */
+      font-size: var(--ui-font-size);
+      line-height: var(--ui-line);
+      font-weight: 600;
+      padding: var(--ui-pad-y) var(--ui-pad-x);
+      border-radius: var(--ui-radius);
+      height: calc(var(--ui-line) * 1em + (var(--ui-pad-y) * 2));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      vertical-align: middle;     /* align with badges */
+      vertical-align: middle;
+      box-sizing: border-box;
     }
     .pub-buttons .btn-sm:hover { background: rgba(0,0,0,0.04); }
 
+    /* Metadata boxes */
     .bibtex, .abstract {
       display: none;
       margin: 0.5rem 0;
@@ -78,20 +95,27 @@
       border: 1px solid #ddd;
       font-family: monospace;
       white-space: pre-wrap;
+      box-sizing: border-box;
+      min-height: var(--abstract-minh);      /* stabilize height */
+      border-radius: 0.25rem;
     }
     .abstract { font-family: 'Open Sans', sans-serif; }
 
-    /* Badges: shared base */
+    /* Badges: shared base (use with .badge-best / .badge-news) */
     .badge {
-      display: inline-block;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--ui-pad-y) var(--ui-pad-x);
+      border-radius: var(--ui-radius);
       margin-right: 0.5rem;
       vertical-align: middle;
       text-decoration: none;
-      font-size: 0.75rem;
-      line-height: 1;
+      font-size: var(--ui-font-size);
+      line-height: var(--ui-line);
       font-weight: 600;
+      height: calc(var(--ui-line) * 1em + (var(--ui-pad-y) * 2)); /* same as buttons */
+      box-sizing: border-box;
     }
 
     /* Best Paper (linkable, always white text) */
@@ -117,6 +141,7 @@
     }
   </style>
 </head>
+
 
 <body>
 
