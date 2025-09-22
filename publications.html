@@ -14,16 +14,16 @@
   <style>
     /* === UI scale variables for consistent sizing === */
     :root{
-      --ui-font-size: 0.875rem;     /* badge & small button text size */
+      --ui-font-size: 0.875rem;     /* badge text size */
       --ui-line: 1.2;               /* line-height multiplier */
       --ui-pad-y: 0.28rem;          /* vertical padding */
       --ui-pad-x: 0.6rem;           /* horizontal padding */
       --ui-radius: 0.35rem;         /* corner radius */
-      --abstract-minh: 4.75rem;     /* min height for abstract/bib blocks */
+      --meta-minh: 4.75rem;         /* min height for abstract blocks */
     }
 
     /* Base font unification */
-    body, button, .btn-sm, .badge {
+    body, .badge, .abstract {
       font-family: 'Open Sans', sans-serif;
     }
 
@@ -57,51 +57,23 @@
     .pub-list a:hover { text-decoration: underline; }
     .status { color: #777; font-style: italic; }
 
-    /* Buttons under each publication */
-    .pub-buttons {
-      margin-top: 0.5rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    /* Button reset + match to badges, identical height */
-    .pub-buttons .btn-sm {
-      appearance: none;
-      -webkit-appearance: none;
-      border: 1px solid var(--color-accent);
-      background: transparent;
-      color: var(--color-accent);
-      font-size: var(--ui-font-size);
-      line-height: var(--ui-line);
-      font-weight: 600;
-      padding: var(--ui-pad-y) var(--ui-pad-x);
-      border-radius: var(--ui-radius);
-      height: calc(var(--ui-line) * 1em + (var(--ui-pad-y) * 2));
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      vertical-align: middle;
-      box-sizing: border-box;
-    }
-    .pub-buttons .btn-sm:hover { background: rgba(0,0,0,0.04); }
-
-    /* Metadata boxes */
-    .bibtex, .abstract {
+    /* Meta boxes (ABSTRACT) — unified style */
+    .abstract {
       display: none;
       margin: 0.5rem 0;
       padding: 0.75rem;
       background: #f9f9f9;
       border: 1px solid #ddd;
-      font-family: monospace;
       white-space: pre-wrap;
       box-sizing: border-box;
-      min-height: var(--abstract-minh);      /* stabilize height */
+      min-height: var(--meta-minh);
       border-radius: 0.25rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #222;
     }
-    .abstract { font-family: 'Open Sans', sans-serif; }
 
-    /* Badges: shared base (use with .badge-best / .badge-news) */
+    /* Badges: shared base */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -114,8 +86,10 @@
       font-size: var(--ui-font-size);
       line-height: var(--ui-line);
       font-weight: 600;
-      height: calc(var(--ui-line) * 1em + (var(--ui-pad-y) * 2)); /* same as buttons */
+      height: calc(var(--ui-line) * 1em + (var(--ui-pad-y) * 2));
       box-sizing: border-box;
+      cursor: pointer;
+      user-select: none;
     }
 
     /* Best Paper (linkable, always white text) */
@@ -125,8 +99,9 @@
     .badge-best:hover,
     .badge-best:active {
       background-color: #c00; /* deep red */
-      color: #fff;            /* force white text */
-      text-decoration: none;  /* no underline */
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     /* News Release (linkable, vivid blue, white text) */
@@ -136,8 +111,19 @@
     .badge-news:hover,
     .badge-news:active {
       background-color: #0066ff; /* vivid blue */
-      color: #fff;               /* force white text */
-      text-decoration: none;     /* no underline */
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Abstract toggle badge (button-like) */
+    .badge-abstract {
+      background-color: #555; /* neutral dark */
+      color: #fff;
+      text-decoration: none;
+    }
+    .badge-abstract[aria-expanded="true"] {
+      background-color: #333;
     }
   </style>
 </head>
@@ -153,8 +139,8 @@
       .then(html => {
         const container = document.getElementById('site-header');
         container.innerHTML = html;
-  
-        // 여기서 바로 토글 이벤트 바인딩
+
+        // 메뉴 토글
         const btn = container.querySelector('.menu-toggle');
         const nav = container.querySelector('nav');
         if (btn && nav) {
@@ -175,87 +161,77 @@
       <h2>Refereed Journal Articles</h2>
       <ul class="pub-list">
         <li>
-          <strong>M. Choi</strong>, D. Vaca, and S. Kumar, “Machine Learning-Enabled Fast and Accurate Inversion of Thermal Properties at the Micro- and Nanoscale via Optical Metrology,” <em>Annu. Rev. Heat Transfer</em>, early access, Sep. 2025,
-          <a href="https://doi.org/10.1615/AnnualRevHeatTransfer.2025059842" target="_blank">doi:10.1615/AnnualRevHeatTransfer.2025059842</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1615/AnnualRevHeatTransfer.2025059842" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/choi2025_arht.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
+          <strong>M. Choi</strong>, D. Vaca, and S. Kumar, “Machine Learning-Enabled Fast and Accurate Inversion of Thermal Properties at the Micro- and Nanoscale via Optical Metrology,” <em>Annu. Rev. Heat Transfer</em>, early access, Sep. 2025.
           <div class="abstract">
             Placeholder abstract. Replace with the journal abstract text if desired.
           </div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, S. Krishnakumar, R. R. Khorasani, M. Swaminathan, I. Partin-Vaisband, and S. Kumar,
           “Substrate-Embedded Microfluidic Cooling of Distributed Vertical Power Delivery Architectures for High-Performance Computing Processors,”
-          <em>IEEE Trans. Compon., Packag., Manuf. Technol.</em>, vol. 15, no. 9, pp. 1912–1920, Sep. 2025,
-          <a href="https://doi.org/10.1109/TCPMT.2025.3544105" target="_blank">doi:10.1109/TCPMT.2025.3544105</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1109/TCPMT.2025.3544105" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/choi2025_tcpmt.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          <em>IEEE Trans. Compon., Packag., Manuf. Technol.</em>, vol. 15, no. 9, pp. 1912–1920, Sep. 2025.
           <div class="abstract">
             Placeholder abstract. Replace with the paper abstract text if desired.
           </div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, A. J. McLeod, <strong>M. Choi</strong>, D. Vaca, D. Contreras Mora, K. Wang, S. Yun, J. Dutta, D. Pal, S. Kumar, and A. C. Kummel,
           “Achieving a High Thermally Conductive One Micron AlN Deposition by High Power Impulse Magnetron Sputtering Plus Kick,”
-          <em>ACS Appl. Mater. Interfaces</em>, vol. 16, no. 20, pp. 26664–26673, May 2024,
-          <a href="https://doi.org/10.1021/acsami.4c00993" target="_blank">doi:10.1021/acsami.4c00993</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1021/acsami.4c00993" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/lee2024_acsami.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          <em>ACS Appl. Mater. Interfaces</em>, vol. 16, no. 20, pp. 26664–26673, May 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, B. Goo, G. Cho, and S. J. Song,
-          “Swirl Enhancement Effect on Turbine Rim Seal Performance,” <em>ASME J. Turbomach.</em>, vol. 146, no. 5, p. 051002, May 2024,
-          <a href="https://doi.org/10.1115/1.4064230" target="_blank">doi:10.1115/1.4064230</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1115/1.4064230" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/choi2024_jturbomach.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          “Swirl Enhancement Effect on Turbine Rim Seal Performance,” <em>ASME J. Turbomach.</em>, vol. 146, no. 5, p. 051002, May 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
       </ul>
     </section>
-  
+
     <!-- Manuscripts Under Review -->
     <section class="pub-category">
       <h2>Manuscripts Under Review</h2>
       <ul class="pub-list">
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           D. Go, V. Ashita, A. Wang, <strong>M. Choi</strong>, H. S. Song, S. Yun, D. Pal, P.-C. Lee, J. Dutta, J. Ryu, C. V. Thompson, M. S. Bakir, S. Kumar, and A. C. Kummel,
           “Chiplet Encapsulation and Planarization with 100 μm Deep Gaps using AlN Powder Spray + Sputter Hybrid Deposition,” <span class="status">submitted for publication</span>.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           S. Yun, D. Go, <strong>M. Choi</strong>, R. Kondakindi, P.-C. Lee, W. Aigner, T. Metzger, S. Kumar, P. R. Bandaru, and A. C. Kummel,
           “High Thermal-Conductivity of Aluminum Nitride on Si (111) Deposited by DC Reactive Sputter at Room Temperature,” <span class="status">submitted for publication</span>.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           S. Krishnakumar, Y. Popryho, <strong>M. Choi</strong>, R. R. Khorasani, M. Swaminathan, S. Kumar, and I. Partin-Vaisband,
           “A Comprehensive Design Framework for Vertical Power Delivery in High-Performance Computing,” <span class="status">submitted for publication</span>.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, <strong>M. Choi</strong>, D. Contreras Mora, K. Wang, S. Yun, D. Go, J. Dutta, D. Pal, S. Kumar, and A. C. Kummel,
           “High-Speed AlN Film Deposition via Low-Pressure HiPIMS Plus Kick for Enhanced Thermal Conductivity,” <span class="status">submitted for publication</span>.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, S. Krishnakumar, Y. Popryho, R. R. Khorasani, M. Swaminathan, I. Partin-Vaisband, and S. Kumar,
           “Self-Consistent Electrothermal Modeling of Distributed Vertical Power Delivery Architecture with Substrate-Embedded Microfluidic Cooling,” <span class="status">submitted for publication</span>.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
       </ul>
     </section>
-  
+
     <!-- Refereed Conference Proceedings -->
     <section class="pub-category">
       <h2>Refereed Conference Proceedings</h2>
@@ -263,141 +239,95 @@
         <li>
           <a class="badge badge-best" href="https://www.ieee-itherm.net/awards-and-richard-chu-winners/" target="_blank">Best Paper</a>
           <a class="badge badge-news" href="https://www.linkedin.com/posts/megeorgiatech_itherm2025-georgiatech-woodruffschool-activity-7341196407485181953-lUag" target="_blank">News Release</a>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, S. Krishnakumar, Y. Popryho, R. R. Khorasani, M. Swaminathan, I. Partin-Vaisband, and S. Kumar,
           “Automated Electro-Thermal Modeling Framework of Distributed Vertical Power Delivery Architectures with Substrate-Embedded Microfluidic Cooling,”
           in <em>Proc. 24th IEEE Intersoc. Conf. Thermal Thermomech. Phenomena Electron. Syst. (ITherm)</em>, Dallas, TX, USA, May 2025,
           <span class="status">to be published</span>.
-          <div class="pub-buttons">
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
           <a class="badge badge-news" href="https://ece.gatech.edu/news/2024/11/ece-set-big-weekend-iedm-2024" target="_blank">News Release</a>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, R. Dutta, P. Saha, M. P. Singh, S. Mukhopadhyay, S. Datta, and S. Kumar,
           “Fast Prediction of Spatio-Temporal Temperature Profiles in FinFET Arrays via Numerical and Machine-Learning Approaches,”
-          in <em>Proc. IEEE Int. Electron Devices Meeting (IEDM)</em>, San Francisco, CA, USA, Dec. 2024,
-          <a href="https://doi.org/10.1109/IEDM50854.2024.10873584" target="_blank">doi:10.1109/IEDM50854.2024.10873584</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1109/IEDM50854.2024.10873584" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/choi2024_iedm.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          in <em>Proc. IEEE Int. Electron Devices Meeting (IEDM)</em>, San Francisco, CA, USA, Dec. 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           Y. Im, J. Kim, <strong>M. Choi</strong>, M. Bouzidi, X. Li, J. W. Kim, A. M. Muslu, S. Kumar, M. Swaminathan, S. K. Sitaraman, and Y. Joshi,
           “Parametric Thermal Design for Heterogeneously Integrated High-Power Packages,”
-          in <em>Proc. ASME 2024 Int. Tech. Conf. Exhib. Packaging Integr. Electron. Photon. Microsystems (InterPACK)</em>, San Jose, CA, USA, Oct. 2024,
-          <a href="https://doi.org/10.1115/IPACK2024-141216" target="_blank">doi:10.1115/IPACK2024-141216</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1115/IPACK2024-141216" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/im2024_interpack.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          in <em>Proc. ASME 2024 Int. Tech. Conf. Exhib. Packaging Integr. Electron. Photon. Microsystems (InterPACK)</em>, San Jose, CA, USA, Oct. 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, A. J. McLeod, <strong>M. Choi</strong>, D. Vaca, S. Kumar, and A. C. Kummel,
           “Thermal Conductivity Study of One Micron AlN Deposition by Bipolar High Power Impulse Magnetron Sputtering,”
-          in <em>Proc. IEEE Int. Interconnect Technol. Conf. (IITC)</em>, San Jose, CA, USA, Jun. 2024,
-          <a href="https://doi.org/10.1109/IITC61274.2024.10732369" target="_blank">doi:10.1109/IITC61274.2024.10732369</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1109/IITC61274.2024.10732369" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/lee2024_iitc.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          in <em>Proc. IEEE Int. Interconnect Technol. Conf. (IITC)</em>, San Jose, CA, USA, Jun. 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           S. Krishnakumar, <strong>M. Choi</strong>, R. R. Khorasani, R. Sharma, M. Swaminathan, S. Kumar, and I. Partin-Vaisband,
           “Vertical Power Delivery for High Performance Computing Systems with Buck-Derived Regulators,”
-          in <em>Proc. IEEE 74th Electron. Compon. Technol. Conf. (ECTC)</em>, Denver, CO, USA, May 2024,
-          <a href="https://doi.org/10.1109/ECTC51529.2024.00364" target="_blank">doi:10.1109/ECTC51529.2024.00364</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1109/ECTC51529.2024.00364" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/krishnakumar2024_ectc.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          in <em>Proc. IEEE 74th Electron. Compon. Technol. Conf. (ECTC)</em>, Denver, CO, USA, May 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, S. Krishnakumar, R. R. Khorasani, I. Partin-Vaisband, R. Sharma, M. Swaminathan, and S. Kumar,
           “Thermal Analysis of High Current Vertical Power Delivery Network with Embedded Microchannel Cooling,”
-          in <em>Proc. 23rd IEEE Intersoc. Conf. Thermal Thermomech. Phenomena Electron. Syst. (ITherm)</em>, Aurora, CO, USA, May 2024,
-          <a href="https://doi.org/10.1109/ITherm55375.2024.10709419" target="_blank">doi:10.1109/ITherm55375.2024.10709419</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1109/ITherm55375.2024.10709419" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/choi2024_itherm.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          in <em>Proc. 23rd IEEE Intersoc. Conf. Thermal Thermomech. Phenomena Electron. Syst. (ITherm)</em>, Aurora, CO, USA, May 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
-          S. Krishnakumar, <strong>M. Choi</strong>, R. R. Khorasani, R. Sharma, M. Swaminathan, S. Kumar, and I. Partin-Vaisband,
-          “Design Considerations for DC-DC Voltage Regulators in Distributed Vertical Power Delivery Systems,”
-          in <em>Proc. IEEE Int. Symp. Circuits Syst. (ISCAS)</em>, Singapore, May 2024,
-          <a href="https://doi.org/10.1109/ISCAS58744.2024.10558456" target="_blank">doi:10.1109/ISCAS58744.2024.10558456</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1109/ISCAS58744.2024.10558456" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/krishnakumar2024_iscas.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
-          <div class="abstract">Placeholder abstract.</div>
-        </li>
-  
-        <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, A. J. McLeod, <strong>M. Choi</strong>, D. Vaca, D. Contreras Mora, S. Kumar, and A. C. Kummel,
           “High Thermally Conductive, High-Speed Deposition of AlN by Bipolar High Power Impulse Magnetron Sputtering,”
-          in <em>Proc. IEEE Int. Symp. VLSI Technol. Syst. Appl. (VLSI-TSA)</em>, Hsinchu, Taiwan, Apr. 2024,
-          <a href="https://doi.org/10.1109/VLSITSA60681.2024.10546374" target="_blank">doi:10.1109/VLSITSA60681.2024.10546374</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1109/VLSITSA60681.2024.10546374" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/lee2024_vlsitsa.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          in <em>Proc. IEEE Int. Symp. VLSI Technol. Syst. Appl. (VLSI-TSA)</em>, Hsinchu, Taiwan, Apr. 2024.
           <div class="abstract">Placeholder abstract.</div>
         </li>
-  
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, B. Goo, G. Cho, and S. J. Song,
           “Swirl Enhancement Effect on Turbine Rim Seal Performance,”
-          in <em>Proc. ASME Turbo Expo 2023: Turbomach. Tech. Conf. Expo</em>, Boston, MA, USA, Jun. 2023,
-          <a href="https://doi.org/10.1115/GT2023-101389" target="_blank">doi:10.1115/GT2023-101389</a>.
-          <div class="pub-buttons">
-            <a href="https://doi.org/10.1115/GT2023-101389" target="_blank"><button class="btn-sm">DOI</button></a>
-            <a href="bib/choi2023_turboexpo.bib" download><button class="btn-sm">BIB</button></a>
-            <button class="btn-sm btn-abstract">ABSTRACT</button>
-          </div>
+          in <em>Proc. ASME Turbo Expo 2023: Turbomach. Tech. Conf. Expo</em>, Boston, MA, USA, Jun. 2023.
           <div class="abstract">Placeholder abstract.</div>
         </li>
       </ul>
     </section>
-  
+
     <!-- Patents -->
     <section class="pub-category">
       <h2>Patents</h2>
       <ul class="pub-list">
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, <strong>M. Choi</strong>, D. Contreras Mora, D. Go, S. Kumar, and A. C. Kummel,
           “Low-Pressure HiPIMS Method for Rapid Deposition of High-Thermal Conductivity Aluminum Nitride Film,”
           U.S. Provisional Patent Application 63/710,945, filed Oct. 2024.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong> and S. J. Song, “Gas Turbine Engine with Improved Flow Stability and Cooling Efficiency,”
-          Republic of Korea Patent 10-2206447, filed Oct. 2020, issued Jan. 2021,
-          <a href="https://doi.org/10.8080/1020200130286" target="_blank">doi:10.8080/1020200130286</a>.
+          Republic of Korea Patent 10-2206447, filed Oct. 2020, issued Jan. 2021.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Gas Turbine Engine with Improved Sealing and Operability,”
-          Republic of Korea Patent 10-2202368, filed Sep. 2020, issued Jan. 2021,
-          <a href="https://doi.org/10.8080/1020200119006" target="_blank">doi:10.8080/1020200119006</a>.
+          Republic of Korea Patent 10-2202368, filed Sep. 2020, issued Jan. 2021.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
       </ul>
     </section>
@@ -406,78 +336,96 @@
     <section class="pub-category">
       <h2>Conference Presentations</h2>
       <ul class="pub-list">
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, D. Contreras Mora, <strong>M. Choi</strong>, “Vertical Aligned Hexagonal Boron Nitride with High Interfacial Thermal Conductivity,”
           presented at the <em>56th IEEE Semiconductor Interface Specialists Conf. (SISC)</em>, San Diego, CA, USA, Dec. 10–13, 2025.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           D. Contreras Mora, P.-C. Lee, <strong>M. Choi</strong>, D. Go, S. Yun, M. Moinpour, L. Chen, M. Clark, R. Kanjolia, S. Kumar, and A. C. Kummel,
           “Thermal Boundary Conductance of Ultrathin Aluminum Nitride Interfaces for Advanced Packaging,” presented at the
           <em>56th IEEE Semiconductor Interface Specialists Conf. (SISC)</em>, San Diego, CA, USA, Dec. 10–13, 2025.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           D. Contreras Mora, P.-C. Lee, <strong>M. Choi</strong>, S. Kumar, and A. C. Kummel,
           “Low Pressure HiPIMS + Kick AlN Deposition with Ultra High Growth Rate,” presented at the
           <em>Gov. Microcircuit Appl. Critical Technol. Conf. (GOMACTech) 2025</em>, Pasadena, CA, USA, Mar. 17–20, 2025.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, D. Contreras Mora, <strong>M. Choi</strong>, S. Kumar, and A. C. Kummel,
           “Enhancing AlN Crystallographic Properties and Thermal Conductivity Using HiPIMS + Kick Deposition,” presented at
           <em>GOMACTech 2024</em>, Charleston, SC, USA, Mar. 18–21, 2024.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           P.-C. Lee, A. J. McLeod, <strong>M. Choi</strong>, D. Vaca, S. Kumar, and A. C. Kummel,
           “Achieving a High Thermal Conductive One Micron AlN Deposition by High Power Impulse Magnetron Sputtering Plus Kick,” presented at the
           <em>54th IEEE Semiconductor Interface Specialists Conf. (SISC)</em>, San Diego, CA, USA, Dec. 13–16, 2023.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           J. Pak, S. Oh, and <strong>M. Choi</strong>, “Computational Modeling for Investigating Flow Instabilities in Gas Turbine Rim Seals,”
           presented at the <em>KSPE Spring Conf. 2020</em>, Online via Zoom, Jul. 16–17, 2020.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Design of a Low-Speed Single-Stage Turbine Facility for Ingress Measurement,”
           presented at <em>IGTC 2019 Tokyo</em>, Tokyo, Japan, Nov. 17–22, 2019.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
         <li>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Sealing Performance Measurement of Single Radial-Clearance Rim Seal,”
           presented at the <em>KFMA Annual Meeting 2018</em>, Yeosu, Republic of Korea, Nov. 28–30, 2018.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
-        <li>
-          <strong>M. Choi</strong>, H. R. Kim, S. Kim, G. Cho, and S. J. Song, “Measurement of Double-Clearance Rim Seal Performance to Prevent Hot Gas Ingestion in Large-Scale Gas Turbines,”
-          presented at the <em>KFMA Annual Meeting 2018</em>, Jeju, Republic of Korea, Jul. 4–6, 2018.
-        </li>
-    
+
         <li>
           <a class="badge badge-best" href="https://me.snu.ac.kr/%ED%95%99%EB%B6%80%EB%89%B4%EC%8A%A4/document/11014/?pageid=46#none" target="_blank">Best Presentation</a>
+          <span class="badge badge-abstract" role="button" aria-expanded="false">Abstract</span>
           <strong>M. Choi</strong>, G. Cho, and S. J. Song,
           “Rebuilding of 1-Stage Axial Turbine Rim Seal Test Facility in Seoul National University,”
           presented at the <em>KFMA Annual Meeting 2018</em>, Jeju, Republic of Korea, Jul. 4–6, 2018.
+          <div class="abstract">Placeholder abstract.</div>
         </li>
-    
+
       </ul>
     </section>
-    
+
   </main>
 
   <footer>
-    © Mingeun Choi 2025
+    © Mingeun Choi 2025
   </footer>
-  
+
   <script>
-    document.querySelectorAll('.btn-abstract').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // 버튼의 바로 아래 형제 elem인 .abstract를 찾아 display 토글
-        const abs = btn.parentElement.nextElementSibling;
-        abs.style.display = (abs.style.display === 'block') ? 'none' : 'block';
+    // Abstract badge toggle: finds the nearest .abstract within the same <li>
+    document.querySelectorAll('.badge-abstract').forEach(badge => {
+      badge.addEventListener('click', (e) => {
+        const li = e.target.closest('li');
+        if (!li) return;
+        const abs = li.querySelector('.abstract');
+        if (!abs) return;
+        const expanded = badge.getAttribute('aria-expanded') === 'true';
+        abs.style.display = expanded ? 'none' : 'block';
+        badge.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       });
     });
   </script>
