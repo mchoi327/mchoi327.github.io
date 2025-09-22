@@ -80,33 +80,40 @@
     }
     .abstract { font-family: 'Open Sans', sans-serif; }
 
-    /* style.css 혹은 <head> 안 <style> 맨 아래에 추가 */
-    .badge-best {
+    /* 공통 배지 기반 */
+    .badge {
       display: inline-block;
-      background-color: #c00;      /* 진한 빨강 */
-      color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
       padding: 0.2rem 0.5rem;
       border-radius: 0.25rem;
       margin-right: 0.5rem;
       vertical-align: middle;
+      text-decoration: none;
     }
-
-    .badge-news {
-      display: inline-block;
-      background-color: #1e88e5; /* 파란색 계열 */
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.25rem;
-      margin-right: 0.5rem;
-      vertical-align: middle;
-      text-decoration: none; /* 링크 밑줄 제거 */
+    
+    /* Best Paper (링크 가능) */
+    .badge-best,
+    .badge-best:link,
+    .badge-best:visited,
+    .badge-best:hover,
+    .badge-best:active {
+      background-color: #c00; /* 진한 빨강 */
+      color: #fff;            /* 항상 흰색 텍스트 */
+      text-decoration: none;  /* 밑줄 제거 */
     }
-    .badge-news:hover { text-decoration: underline; }
-  
+    
+    /* News Release (링크) - 더 선명한 파란색 */
+    .badge-news,
+    .badge-news:link,
+    .badge-news:visited,
+    .badge-news:hover,
+    .badge-news:active {
+      background-color: #0066ff; /* 새파란색 */
+      color: #fff;               /* 항상 흰색 텍스트 */
+      text-decoration: none;     /* 밑줄 제거 */
+    }
+      
   </style>
 </head>
 <body>
@@ -227,11 +234,12 @@
       <h2>Refereed Conference Proceedings</h2>
       <ul class="pub-list">
         <li>
-          <span class="badge-best">Best Paper</span>
-          <a class="badge-news" href="https://www.linkedin.com/posts/megeorgiatech_itherm2025-georgiatech-woodruffschool-activity-7341196407485181953-lUag" target="_blank">News Release</a>
+          <a class="badge badge-best" href="https://www.ieee-itherm.net/awards-and-richard-chu-winners/" target="_blank">Best Paper</a>
+          <a class="badge badge-news" href="https://www.linkedin.com/posts/megeorgiatech_itherm2025-georgiatech-woodruffschool-activity-7341196407485181953-lUag" target="_blank">News Release</a>
           <strong>M. Choi</strong>, S. Krishnakumar, Y. Popryho, R. R. Khorasani, M. Swaminathan, I. Partin-Vaisband, and S. Kumar,
           “Automated Electro-Thermal Modeling Framework of Distributed Vertical Power Delivery Architectures with Substrate-Embedded Microfluidic Cooling,”
-          in <em>Proc. 24th IEEE Intersoc. Conf. Thermal Thermomech. Phenomena Electron. Syst. (ITherm)</em>, Dallas, TX, USA, May 2025, <span class="status">to be published</span>.
+          in <em>Proc. 24th IEEE Intersoc. Conf. Thermal Thermomech. Phenomena Electron. Syst. (ITherm)</em>, Dallas, TX, USA, May 2025,
+          <span class="status">to be published</span>.
           <div class="pub-buttons">
             <button class="btn-sm btn-abstract">ABSTRACT</button>
           </div>
@@ -368,6 +376,73 @@
     </section>
   </main>
 
+  <!-- Conference Presentations -->
+  <section class="pub-category">
+    <h2>Conference Presentations</h2>
+    <ul class="pub-list">
+  
+      <li>
+        P.-C. Lee, D. Contreras Mora, <strong>M. Choi</strong>, “Vertical Aligned Hexagonal Boron Nitride with High Interfacial Thermal Conductivity,”
+        presented at the <em>56th IEEE Semiconductor Interface Specialists Conf. (SISC)</em>, San Diego, CA, USA, Dec. 10–13, 2025.
+      </li>
+  
+      <li>
+        D. Contreras Mora, P.-C. Lee, <strong>M. Choi</strong>, D. Go, S. Yun, M. Moinpour, L. Chen, M. Clark, R. Kanjolia, S. Kumar, and A. C. Kummel,
+        “Thermal Boundary Conductance of Ultrathin Aluminum Nitride Interfaces for Advanced Packaging,” presented at the
+        <em>56th IEEE Semiconductor Interface Specialists Conf. (SISC)</em>, San Diego, CA, USA, Dec. 10–13, 2025.
+      </li>
+  
+      <li>
+        D. Contreras Mora, P.-C. Lee, <strong>M. Choi</strong>, S. Kumar, and A. C. Kummel,
+        “Low Pressure HiPIMS + Kick AlN Deposition with Ultra High Growth Rate,” presented at the
+        <em>Gov. Microcircuit Appl. Critical Technol. Conf. (GOMACTech) 2025</em>, Pasadena, CA, USA, Mar. 17–20, 2025.
+      </li>
+  
+      <li>
+        P.-C. Lee, D. Contreras Mora, <strong>M. Choi</strong>, S. Kumar, and A. C. Kummel,
+        “Enhancing AlN Crystallographic Properties and Thermal Conductivity Using HiPIMS + Kick Deposition,” presented at
+        <em>GOMACTech 2024</em>, Charleston, SC, USA, Mar. 18–21, 2024.
+      </li>
+  
+      <li>
+        P.-C. Lee, A. J. McLeod, <strong>M. Choi</strong>, D. Vaca, S. Kumar, and A. C. Kummel,
+        “Achieving a High Thermal Conductive One Micron AlN Deposition by High Power Impulse Magnetron Sputtering Plus Kick,” presented at the
+        <em>54th IEEE Semiconductor Interface Specialists Conf. (SISC)</em>, San Diego, CA, USA, Dec. 13–16, 2023.
+      </li>
+  
+      <li>
+        J. Pak, S. Oh, and <strong>M. Choi</strong>, “Computational Modeling for Investigating Flow Instabilities in Gas Turbine Rim Seals,”
+        presented at the <em>KSPE Spring Conf. 2020</em>, Online via Zoom, Jul. 16–17, 2020.
+      </li>
+  
+      <li>
+        <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Design of a Low-Speed Single-Stage Turbine Facility for Ingress Measurement,”
+        presented at <em>IGTC 2019 Tokyo</em>, Tokyo, Japan, Nov. 17–22, 2019.
+      </li>
+  
+      <li>
+        <strong>M. Choi</strong>, B. Goo, and S. J. Song, “Sealing Performance Measurement of Single Radial-Clearance Rim Seal,”
+        presented at the <em>KFMA Annual Meeting 2018</em>, Yeosu, Republic of Korea, Nov. 28–30, 2018.
+      </li>
+  
+      <li>
+        <strong>M. Choi</strong>, H. R. Kim, S. Kim, G. Cho, and S. J. Song, “Measurement of Double-Clearance Rim Seal Performance to Prevent Hot Gas Ingestion in Large-Scale Gas Turbines,”
+        presented at the <em>KFMA Annual Meeting 2018</em>, Jeju, Republic of Korea, Jul. 4–6, 2018.
+      </li>
+  
+      <li>
+        <a class="badge badge-best"
+           href="https://me.snu.ac.kr/%ED%95%99%EB%B6%80%EB%89%B4%EC%8A%A4/document/11014/?pageid=46#none"
+           target="_blank">
+          Best Presentation
+        </a>
+        <strong>M. Choi</strong>, G. Cho, and S. J. Song,
+        “Rebuilding of 1-Stage Axial Turbine Rim Seal Test Facility in Seoul National University,”
+        presented at the <em>KFMA Annual Meeting 2018</em>, Jeju, Republic of Korea, Jul. 4–6, 2018.
+      </li>
+  
+    </ul>
+  </section>
 
   <footer>
     © Mingeun Choi 2025
