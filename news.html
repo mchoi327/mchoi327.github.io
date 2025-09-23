@@ -10,8 +10,9 @@
         rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Page‑specific styles -->
+  <!-- Page-specific styles -->
   <style>
+    /* Hero */
     .hero {
       background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
       text-align: center;
@@ -23,68 +24,82 @@
       font-size: 2.5rem;
       color: var(--color-primary);
     }
-
+  
+    /* List container */
     .news-list {
       max-width: 800px;
       margin: 2rem auto;
       display: grid;
       gap: 2rem;
     }
+  
+    /* Card */
     .news-card {
       display: flex;
       flex-direction: column;
-      background: white;
+      background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       overflow: hidden;
     }
-    .news-image {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .news-content {
-      padding: 1.5rem;
-    }
+    .news-image { width: 100%; height: auto; display: block; }
+  
+    .news-content { padding: 1.5rem; }
     .news-content h3 {
       margin-top: 0;
       font-family: 'Merriweather', serif;
       font-size: 1.5rem;
       color: var(--color-primary);
     }
-    .news-content h3 a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .news-content h3 a:hover {
-      text-decoration: underline;
-    }
+    .news-content h3 a { text-decoration: none; color: inherit; }
+    .news-content h3 a:hover { text-decoration: underline; }
+  
     .news-content time {
       display: block;
       margin-bottom: 1rem;
       color: #777;
-      font-size: 0.9rem;
+      font-size: 0.95rem; /* publications의 .status 크기와 유사 */
     }
+  
+    /* 본문 텍스트: publications와 동일한 볼륨 */
     .news-content p {
       margin-bottom: 1.25rem;
-      line-height: 1.6;
+      line-height: 1.5;
       color: #555;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Open Sans', sans-serif; /* 정상 공백 */
+      font-size: 1rem;                      /* 동일 볼륨 */
     }
-    .news-content .btn {
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
+  
+    /* 버튼: 전역 .btn 규칙을 그대로 사용 (publications와 동일) */
+    /* 만약 style.css에 전역 .btn이 없다면 아래 주석을 풀어 공용 규칙으로 쓰세요 */
+    /*
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid var(--color-accent);
+      border-radius: 0.35rem;
+      color: var(--color-accent);
+      text-decoration: none;
       font-weight: 600;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .btn:hover { background: rgba(0,0,0,0.04); }
+    */
+  
+    /* 채운 버튼이 꼭 필요하면 .btn-primary로 분리해 사용 */
+    .btn-primary {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 0.35rem;
       color: #fff;
       background: var(--color-accent);
-      border-radius: 4px;
       text-decoration: none;
-      transition: background 0.3s;
+      font-weight: 600;
+      font-family: 'Open Sans', sans-serif;
     }
-    .news-content .btn:hover {
-      background: #2980b9;
-    }
+    .btn-primary:hover { filter: brightness(0.95); }
   </style>
+
 </head>
 <body>
 
