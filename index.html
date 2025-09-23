@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -219,4 +219,276 @@
     © Mingeun Choi 2025
   </footer>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Mingeun Choi</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Page-specific styles -->
+  <style>
+    /* Typography parity with publications */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem;
+      text-align: left;
+      font-family: 'Merriweather', serif;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      gap: 2rem;
+      margin: 0 auto;
+    }
+
+    .photo-wrapper {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--color-primary);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .photo-wrapper .profile-photo {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(2.0) translateX(5%) translateY(-5%);
+      transform-origin: center center;
+    }
+    .hero-text h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 3rem;
+      color: var(--color-primary);
+      margin: 0 0 0.5rem 0;
+    }
+    .hero-text p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.25rem;
+      color: #555;
+      line-height: 1.4;
+      margin: 0 0 1.5rem 0;
+    }
+    .hero-ctas { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
+    .icon-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--color-primary); color: #fff; text-decoration: none; font-size: 1.25rem;
+      transition: opacity .2s ease;
+    }
+    .icon-btn:hover { opacity: .85; }
+
+    /* Section shells (match publications/about) */
+    .pub-category { margin: 3rem 0; }
+    .pub-category h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+    }
+    .lead {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;          /* same volume as publications text */
+      line-height: 1.5;
+      color: #555;
+      margin: 0 0 1rem 0;
+    }
+
+    /* Recent News panel */
+    .news-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .news-card-lite {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      background: #fff;
+    }
+    .news-card-lite img {
+      width: 160px; height: 100px; object-fit: cover; border-radius: 0.4rem;
+    }
+    .news-meta time {
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 0.25rem;
+    }
+    .news-meta h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.25rem;
+      margin: 0.1rem 0 0.4rem 0;
+      color: var(--color-primary);
+    }
+    .news-meta p {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #555;
+    }
+    .news-meta a { color: var(--color-accent); text-decoration: none; }
+    .news-meta a:hover { text-decoration: underline; }
+
+    /* Button reused */
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid var(--color-accent);
+      border-radius: 0.35rem;
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Open Sans', sans-serif;
+      margin-top: 0.6rem;
+    }
+    .btn:hover { background: rgba(0,0,0,0.04); }
+  </style>
+</head>
+<body>
+
+  <!-- shared header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        const container = document.getElementById('site-header');
+        container.innerHTML = html;
+        const btn = container.querySelector('.menu-toggle');
+        const nav = container.querySelector('nav');
+        if (btn && nav) btn.addEventListener('click', () => nav.classList.toggle('open'));
+      })
+      .catch(err => console.error('Header load failed:', err));
+  </script>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="photo-wrapper">
+        <img src="images/profile-image.jpg" alt="Mingeun Choi" class="profile-photo">
+      </div>
+      <div class="hero-text">
+        <h1>Mingeun Choi</h1>
+        <p>
+          PhD Student in Mechanical Engineering at Georgia Tech,<br>
+          focusing on electrothermal modeling and thermoreflectance methods.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://scholar.google.com/citations?user=wykhM08AAAAJ&hl=en" class="icon-btn" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+          <a href="https://www.linkedin.com/in/mingeunchoi/" class="icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/mchoi327" target="_blank" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="files/20250912_CV_Mingeun_Choi.pdf" class="icon-btn" download="Mingeun_Choi_CV_2025-09-12.pdf" aria-label="Download CV"><i class="fa-solid fa-file-arrow-down"></i></a>
+          <a href="mailto:mingeun.choi@gatech.edu" class="icon-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="pub-category">
+      <h2>Welcome</h2>
+      <p class="lead">
+        My research focuses on electrothermal modeling and thin-film thermal-property characterization in heterogeneously integrated electronics. I develop an automated electrothermal modeling framework to co-optimize vertical power delivery architecture and substrate-embedded microfluidic cooling for thermally sustainable high-power-density operation. I also build a machine-learning-accelerated electrothermal modeling framework to predict spatiotemporal temperature fields from individual FinFET devices to arrays for fast accurate self-heating-aware evaluation. Finally I design a machine-learning-enabled frequency-domain thermoreflectance inversion model to estimate the thermal properties of thin films for high-throughput low-uncertainty characterization.
+      </p>
+    </section>
+
+    <!-- Recent News (auto-populated from news.html) -->
+    <section class="pub-category">
+      <h2>Recent News</h2>
+      <div id="recent-news" class="news-panel">
+        <!-- populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © Mingeun Choi 2025
+  </footer>
+
+  <script>
+    // Auto-highlight most recent news from news.html
+    (async function loadRecentNews() {
+      const mount = document.getElementById('recent-news');
+      if (!mount) return;
+
+      try {
+        const res = await fetch('news.html', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to fetch news.html');
+        const html = await res.text();
+
+        // Parse fetched HTML
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const items = Array.from(doc.querySelectorAll('article.news-card'));
+
+        if (items.length === 0) {
+          mount.innerHTML = '<p class="lead">No news posts yet.</p>';
+          return;
+        }
+
+        // Pick most recent by <time datetime="">
+        const pick = items
+          .map(el => {
+            const time = el.querySelector('time');
+            const dt = time ? time.getAttribute('datetime') || time.textContent.trim() : '';
+            const date = dt ? new Date(dt) : new Date(0);
+            return { el, date, timeText: time ? time.textContent.trim() : '' };
+          })
+          .sort((a, b) => b.date - a.date)[0];
+
+        // Extract basic fields
+        const imgEl = pick.el.querySelector('img');
+        const titleLink = pick.el.querySelector('h3 a');
+        const titleText = titleLink ? titleLink.textContent.trim() : (pick.el.querySelector('h3')?.textContent.trim() || 'Untitled');
+        const href = titleLink ? titleLink.getAttribute('href') : null;
+        const p = pick.el.querySelector('p');
+        const summary = p ? p.textContent.trim() : '';
+
+        // Build lightweight card
+        const wrap = document.createElement('div');
+        wrap.className = 'news-card-lite';
+        wrap.innerHTML = `
+          <div class="news-thumb">
+            <img src="${imgEl ? imgEl.getAttribute('src') : 'images/placeholder-news.jpg'}" alt="${imgEl ? (imgEl.getAttribute('alt') || 'News image') : 'News image'}">
+          </div>
+          <div class="news-meta">
+            <time>${pick.timeText || ''}</time>
+            <h3>${href ? `<a href="${href}" target="_blank" rel="noopener">${titleText}</a>` : titleText}</h3>
+            <p>${summary}</p>
+            ${href ? `<a href="${href}" target="_blank" rel="noopener" class="btn">Read More</a>` : ``}
+          </div>
+        `;
+        mount.replaceChildren(wrap);
+      } catch (err) {
+        console.error(err);
+        document.getElementById('recent-news').innerHTML =
+          '<p class="lead">Could not load recent news. Please visit the <a href="news.html">News</a> page.</p>';
+      }
+    })();
+  </script>
+</body>
 </html>
+
