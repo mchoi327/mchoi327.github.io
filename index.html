@@ -210,22 +210,22 @@
     (async function loadRecentNews() {
       const mount = document.getElementById('recent-news');
       if (!mount) return;
-
+  
       try {
         const res = await fetch('news.html', { cache: 'no-store' });
         if (!res.ok) throw new Error('Failed to fetch news.html');
         const html = await res.text();
-
+  
         // Parse fetched HTML
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const items = Array.from(doc.querySelectorAll('article.news-card'));
-
+  
         if (items.length === 0) {
           mount.innerHTML = '<p class="lead">No news posts yet.</p>';
           return;
         }
-
+  
         // Pick most recent by <time datetime="">
         const pick = items
           .map(el => {
@@ -235,29 +235,47 @@
             return { el, date, timeText: time ? time.textContent.trim() : '' };
           })
           .sort((a, b) => b.date - a.date)[0];
-
-        // Extract basic fields
+  
+        // Extract fields
         const imgEl = pick.el.querySelector('img');
-        const titleLink = pick.el.querySelector('h3 a');
-        const titleText = titleLink ? titleLink.textContent.trim() : (pick.el.querySelector('h3')?.textContent.trim() || 'Untitled');
-        const href = titleLink ? titleLink.getAttribute('href') : null;
+        const externalLink = pick.el.querySelector('h3 a'); // 원문 링크 (있을 수도 있고 없을 수도 있음)
+        const titleText = externalLink
+          ? externalLink.textContent.trim()
+          : (pick.el.querySelector('h3')?.textContent.trim() || 'Untitled');
+        const href = externalLink ? externalLink.getAttribute('href') : null;
         const p = pick.el.querySelector('p');
         const summary = p ? p.textContent.trim() : '';
-
-        // Build lightweight card
+  
+        // Build lightweight card (카드 전체 클릭 → news.html)
         const wrap = document.createElement('div');
         wrap.className = 'news-card-lite';
+        wrap.setAttribute('role', 'link');
+        wrap.setAttribute('tabindex', '0');
         wrap.innerHTML = `
           <div class="news-thumb">
-            <img src="${imgEl ? imgEl.getAttribute('src') : 'images/placeholder-news.jpg'}" alt="${imgEl ? (imgEl.getAttribute('alt') || 'News image') : 'News image'}">
+            <img src="${imgEl ? imgEl.getAttribute('src') : 'images/placeholder-news.jpg'}"
+                 alt="${imgEl ? (imgEl.getAttribute('alt') || 'News image') : 'News image'}">
           </div>
           <div class="news-meta">
             <time>${pick.timeText || ''}</time>
-            <h3>${href ? `<a href="${href}" target="_blank" rel="noopener">${titleText}</a>` : titleText}</h3>
+            <h3>${titleText}</h3>
             <p>${summary}</p>
             ${href ? `<a href="${href}" target="_blank" rel="noopener" class="btn">Read More</a>` : ``}
           </div>
         `;
+  
+        // 카드 전체 클릭 시 News 페이지로 이동
+        const goNews = () => { window.location.href = 'news.html'; };
+        wrap.addEventListener('click', goNews);
+        wrap.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goNews(); }
+        });
+  
+        // 내부 링크 클릭은 카드 네비게이션 막기
+        wrap.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', (e) => e.stopPropagation());
+        });
+  
         mount.replaceChildren(wrap);
       } catch (err) {
         console.error(err);
@@ -266,6 +284,7 @@
       }
     })();
   </script>
+
 </body>
 </html>
 
