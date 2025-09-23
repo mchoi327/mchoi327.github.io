@@ -3,16 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>About | Mingeun Choi</title>
+  <title>About | Mingeun Choi</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Page‑specific styles -->
+  <!-- Page-specific styles (matched to Publications volume) -->
   <style>
-    /* Hero banner for section title */
+    :root{
+      --color-primary: #0b2b4c;
+      --color-accent:  #1e88e5;
+      --container-max: 880px;
+    }
+
+    /* Base typography */
+    html { font-size: 17px; } /* bump base size to match Publications volume */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+    }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: #222; font-weight: 600; }
+
+    /* Hero banner */
     .hero {
       background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
       text-align: center;
@@ -21,34 +38,47 @@
     }
     .hero h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.6rem; /* slight bump to keep visual hierarchy with 17px base */
       color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
 
-    /* Section wrapper */
-    .pub-category {
-      margin: 3rem 0;
+    /* Layout */
+    main { padding: 0 1.25rem; }
+    @media (min-width: 768px){
+      main { max-width: var(--container-max); margin: 0 auto; }
     }
+
+    /* Section block */
+    .pub-category { margin: 3rem 0; }
     .pub-category h2 {
       font-family: 'Merriweather', serif;
-      font-size: 1.75rem;
+      font-size: 1.85rem; /* slightly larger with the raised base */
       color: var(--color-primary);
       border-bottom: 2px solid var(--color-accent);
       display: inline-block;
       padding-bottom: 0.25rem;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem 0;
+      font-weight: 700;
+      letter-spacing: 0.005em;
     }
 
-    /* List styling */
-    .pub-list {
-      list-style: none;
-      padding-left: 0;
-    }
+    /* Lists */
+    .pub-list { list-style: none; padding-left: 0; margin: 0; }
     .pub-list li {
-      margin-bottom: 1rem;
-      line-height: 1.5;
+      margin-bottom: 1.1rem;
+      line-height: 1.55; /* match feel of Publications */
       color: #555;
-      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;  /* with 17px root this reads ~17px */
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 1.25rem;
+      text-align: center;
+      color: #777;
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -62,8 +92,8 @@
       .then(html => {
         const container = document.getElementById('site-header');
         container.innerHTML = html;
-  
-        // 여기서 바로 토글 이벤트 바인딩
+
+        // 메뉴 토글
         const btn = container.querySelector('.menu-toggle');
         const nav = container.querySelector('nav');
         if (btn && nav) {
@@ -72,7 +102,7 @@
       })
       .catch(err => console.error('Header load failed:', err));
   </script>
-  
+
   <!-- Section Title -->
   <section class="hero">
     <h1>About Me</h1>
@@ -85,8 +115,8 @@
       <ul class="pub-list">
         <li>
           <strong>Republic of Korea Air Force Academy</strong><br>
-          Assistant Professor (First Lieutenant), Jun 2020 – May 2022<br>
-          Instructor (Second Lieutenant), Jun 2019 – May 2020
+          Assistant Professor (First Lieutenant), Jun 2020 – May 2022<br>
+          Instructor (Second Lieutenant), Jun 2019 – May 2020
         </li>
       </ul>
     </section>
@@ -97,34 +127,33 @@
       <ul class="pub-list">
         <li>
           <strong>Georgia Institute of Technology</strong><br>
-          PhD in Mechanical Engineering, Jan 2023 – May 2027<br>
-          (Advisor: Dr. Satish Kumar)
+          PhD in Mechanical Engineering, Jan 2023 – May 2027<br>
+          (Advisor: Dr. Satish Kumar)
         </li>
         <li>
           <strong>Seoul National University</strong><br>
-          MS in Mechanical Engineering, Mar 2017 – Feb 2019<br>
-          (Advisor: Dr. Seung Jin Song)
+          MS in Mechanical Engineering, Mar 2017 – Feb 2019<br>
+          (Advisor: Dr. Seung Jin Song)
         </li>
         <li>
           <strong>Korea University</strong><br>
-          BS in Mechanical Engineering, Mar 2013 – Feb 2017
+          BS in Mechanical Engineering, Mar 2013 – Feb 2017
         </li>
       </ul>
     </section>
 
-     
-    <!-- Research Interests -->
+    <!-- Research Interests (optional) -->
     <!--
     <section class="pub-category">
       <h2>Research Interests</h2>
       <ul class="pub-list">
         <li>
           My research focuses on developing advanced thermal management solutions for heterogeneously
-          integrated electronics, addressing both macro‑ and micro‑scale challenges. At the macro level,
-          I design vertical power delivery architectures with substrate‑embedded microfluidic cooling.
-          At the micro level, I investigate high‑thermal‑conductivity thin films as heat spreaders for
-          localized hotspots, and develop a machine learning–accelerated multi‑scale modeling framework
-          for real‑time temperature prediction in FinFET arrays.
+          integrated electronics, addressing both macro and micro scale challenges. At the macro level,
+          I design vertical power delivery architectures with substrate embedded microfluidic cooling.
+          At the micro level, I investigate high thermal conductivity thin films as heat spreaders for
+          localized hotspots, and develop a machine learning accelerated multi scale modeling framework
+          for real time temperature prediction in FinFET arrays.
         </li>
       </ul>
     </section>
@@ -132,7 +161,7 @@
   </main>
 
   <footer>
-    © Mingeun Choi 2025
+    © Mingeun Choi 2025
   </footer>
 </body>
 </html>
