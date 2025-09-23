@@ -16,9 +16,8 @@
       --color-accent:  #1e88e5;
       --container-max: 880px;
     }
-
-    /* Base typography */
-    html { font-size: 17px; }
+  
+    /* 전역 베이스는 건드리지 않기  font-size 오버라이드 제거 */
     body {
       font-family: 'Open Sans', sans-serif;
       color: #333;
@@ -28,52 +27,51 @@
     a { color: var(--color-accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     strong { color: #222; font-weight: 600; }
-
-    /* Hero banner */
+  
+    /* Hero  Publications/News와 동일 값 */
     .hero {
       background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 4rem 2rem;          /* 4rem로 통일 */
       font-family: 'Merriweather', serif;
     }
     .hero h1 {
       margin: 0;
-      font-size: 2.6rem;
+      font-size: 2.5rem;           /* 2.5rem로 통일 */
       color: var(--color-primary);
       font-weight: 700;
-      letter-spacing: 0.01em;
+      letter-spacing: 0;           /* 추가 자간 제거 */
     }
-
-    /* Layout */
+  
+    /* 레이아웃  Publications와 동일한 폭 사용 */
     main { padding: 0 1.25rem; }
     @media (min-width: 768px){
       main { max-width: var(--container-max); margin: 0 auto; }
     }
-
-    /* Section block */
+  
+    /* 섹션 블록  Publications와 동일 */
     .pub-category { margin: 3rem 0; }
     .pub-category h2 {
       font-family: 'Merriweather', serif;
-      font-size: 1.85rem;
+      font-size: 1.75rem;          /* 1.75rem로 통일 */
       color: var(--color-primary);
       border-bottom: 2px solid var(--color-accent);
       display: inline-block;
       padding-bottom: 0.25rem;
-      margin: 0 0 1rem 0;
+      margin-bottom: 1rem;
       font-weight: 700;
-      letter-spacing: 0.005em;
     }
-
-    /* Lists */
+  
+    /* 리스트  Publications와 동일 볼륨 */
     .pub-list { list-style: none; padding-left: 0; margin: 0; }
     .pub-list li {
-      margin-bottom: 1.1rem;
-      line-height: 1.55;
+      margin-bottom: 1rem;
+      line-height: 1.5;
       color: #555;
       font-size: 1rem;
     }
-
-    /* Footer */
+  
+    /* 푸터 */
     footer {
       padding: 2rem 1.25rem;
       text-align: center;
@@ -81,6 +79,7 @@
       font-size: 0.95rem;
     }
   </style>
+
 </head>
 <body>
 
