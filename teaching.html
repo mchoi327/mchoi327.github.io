@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Teaching | Mingeun Choi</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Page-specific styles (matched to About/Publications volume) -->
+  <style>
+    :root{
+      --color-primary: #0b2b4c;
+      --color-accent:  #1e88e5;
+      --container-max: 880px;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+    }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: #222; font-weight: 600; }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: 'Merriweather', serif;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    main { padding: 0 1.25rem; }
+    @media (min-width: 768px){
+      main { max-width: var(--container-max); margin: 0 auto; }
+    }
+
+    .pub-category { margin: 3rem 0; }
+    .pub-category h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .pub-list { list-style: none; padding-left: 0; margin: 0; }
+    .pub-list li {
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+      color: #555;
+      font-size: 1rem;
+    }
+    .course-list {
+      list-style: none;
+      margin: 0.5rem 0 0 0;
+      padding-left: 0;
+    }
+    .course-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    footer {
+      padding: 2rem 1.25rem;
+      text-align: center;
+      color: #777;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- shared header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        const container = document.getElementById('site-header');
+        container.innerHTML = html;
+
+        const btn = container.querySelector('.menu-toggle');
+        const nav = container.querySelector('nav');
+        if (btn && nav) {
+          btn.addEventListener('click', () => nav.classList.toggle('open'));
+        }
+      })
+      .catch(err => console.error('Header load failed:', err));
+  </script>
+
+  <!-- Section Title -->
+  <section class="hero">
+    <h1>Teaching</h1>
+  </section>
+
+  <main>
+    <!-- Teaching Experience -->
+    <section class="pub-category">
+      <h2>Teaching Experience</h2>
+      <ul class="pub-list">
+        <li>
+          <strong>Georgia Institute of Technology</strong><br>
+          George W. Woodruff School of Mechanical Engineering<br>
+          Teaching Practicum, Jan. 2024 – May 2024
+          <ul class="course-list">
+            <li>Heat Transfer (Spring 2024) — ME3345</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Republic of Korea Air Force Academy</strong><br>
+          Department of Mechanical Engineering<br>
+          Instructor – Assistant Professor, Jun. 2019 – May 2022
+          <ul class="course-list">
+            <li>Fluid Mechanics (Spring 2020, Spring 2022) — A0532</li>
+            <li>Applied Fluid Mechanics (Spring 2021) — A1154</li>
+            <li>Thermodynamics (Fall 2022) — A0438</li>
+            <li>Heat Transfer (Fall 2019, Fall 2020, Fall 2021) — A0439</li>
+            <li>Energy Systems Engineering (Fall 2022) — A1692</li>
+            <li>Engineering Mechanics: Statics and Dynamics (Fall 2019, Fall 2020, Spring 2022) — A0066</li>
+            <li>Mechanical Component Design and Drawing (Fall 2019, Fall 2020) — A0151</li>
+            <li>Manufacturing Processes and Practice (Spring 2021) — A0138</li>
+            <li>Mechanical Engineering Laboratory (Spring 2021, Spring 2022) — A0145</li>
+            <li>Practical Research on Military Task (Fall 2020, Fall 2021) — A1610</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Seoul National University</strong><br>
+          Department of Mechanical Engineering<br>
+          Teaching Assistant, Mar. 2018 – Dec. 2018
+          <ul class="course-list">
+            <li>Mechanical System Design Project 2 (Fall 2018) — M2794.004300</li>
+            <li>Mechanical System Design Project 1 (Spring 2018) — M2794.004200</li>
+            <li>Fluid Mechanics (Spring 2018) — M2794.001300</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Teaching Certifications -->
+    <section class="pub-category">
+      <h2>Teaching Certifications</h2>
+      <ul class="pub-list">
+        <li>
+          <strong>Tech to Teaching</strong>, Georgia Institute of Technology — Mar. 2025<br>
+          Completed the capstone teaching practicum for Heat Transfer (ME 3345) by designing and delivering four instructional sessions, earning over 90% positive student feedback.
+        </li>
+        <li>
+          <strong>CIRTL Associate</strong>, Center for the Integration of Research, Teaching, and Learning (CIRTL) — Mar. 2025<br>
+          Completed foundational training in evidence-based teaching practices and inclusive-pedagogy frameworks, applying these methods to improve classroom equity and student engagement.
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © Mingeun Choi 2026
+  </footer>
+</body>
+</html>
