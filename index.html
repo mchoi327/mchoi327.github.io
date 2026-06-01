@@ -65,7 +65,7 @@
       font-family: 'Merriweather', serif;
       font-size: 3rem;
       color: var(--color-primary);
-      margin: 0 0 0.5rem 0;
+      margin: 0;
     }
     .hero-text p {
       font-family: 'Open Sans', sans-serif;
@@ -74,7 +74,14 @@
       line-height: 1.4;
       margin: 0 0 1.5rem 0;
     }
-    .hero-ctas { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .hero-ctas { display: flex; align-items: center; gap: 0.75rem; }
     .icon-btn {
       display: inline-flex; align-items: center; justify-content: center;
       width: 40px; height: 40px; border-radius: 50%;
@@ -82,6 +89,19 @@
       transition: opacity .2s ease;
     }
     .icon-btn:hover { opacity: .85; }
+    .hero-docs {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.35rem;
+      font-size: 1rem;
+    }
+    .hero-docs a {
+      color: var(--color-accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .hero-docs a:hover { text-decoration: underline; }
 
     /* Section shells (match publications/about) */
     .pub-category { margin: 3rem 0; }
@@ -118,7 +138,7 @@
       background: #fff;
     }
     .news-card-lite img {
-      width: 160px; height: 100px; object-fit: cover; border-radius: 0.4rem;
+      width: 160px; height: 120px; object-fit: cover; border-radius: 0.4rem;
     }
     .news-meta time {
       display: inline-block;
@@ -139,25 +159,18 @@
       line-height: 1.5;
       color: #555;
     }
-    .news-meta a { color: var(--color-accent); text-decoration: none; }
-    .news-meta a:hover { text-decoration: underline; }
-
-    /* Button reused */
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 0.9rem;
-      border: 1px solid var(--color-accent);
-      border-radius: 0.35rem;
-      color: var(--color-accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-family: 'Open Sans', sans-serif;
-      margin-top: 0.6rem;
-    }
-    .btn:hover { background: rgba(0,0,0,0.04); }
+    .news-meta a:not(.btn) { color: var(--color-accent); text-decoration: none; }
+    .news-meta a:not(.btn):hover { text-decoration: underline; }
+    .news-meta .btn { margin-top: 0.75rem; }
 
     .news-card-lite { cursor: pointer; }
     .news-card-lite:focus { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+    @media (max-width: 640px) {
+      .hero-title-row { justify-content: center; }
+      .news-card-lite { grid-template-columns: 1fr; }
+      .news-card-lite img { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+    }
 
   </style>
 </head>
@@ -184,18 +197,25 @@
         <img src="images/profile-image.png" alt="Mingeun Choi" class="profile-photo">
       </div>
       <div class="hero-text">
-        <h1>Mingeun Choi</h1>
+        <div class="hero-title-row">
+          <h1>Mingeun Choi</h1>
+          <div class="hero-ctas">
+            <a href="https://scholar.google.com/citations?user=wykhM08AAAAJ&hl=en" class="icon-btn" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+            <a href="https://www.linkedin.com/in/mingeunchoi/" class="icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/mchoi327" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:mingeun.choi@gatech.edu" class="icon-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
         <p>
           PhD Student in Mechanical Engineering at Georgia Tech,<br>
-          focusing on electrothermal modeling and thermoreflectance methods.
+          focusing on electrothermal modeling and thermoreflectance methods.<br>
+          <span class="hero-docs">
+            <span>Download:</span>
+            <a href="files/20260531_Resume_Mingeun_Choi.pdf" download="Mingeun_Choi_Resume_2026-05-31.pdf">Resume</a>
+            <span aria-hidden="true">·</span>
+            <a href="files/20260531_CV_Mingeun_Choi.pdf" download="Mingeun_Choi_CV_2026-05-31.pdf">CV</a>
+          </span>
         </p>
-        <div class="hero-ctas">
-          <a href="https://scholar.google.com/citations?user=wykhM08AAAAJ&hl=en" class="icon-btn" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-          <a href="https://www.linkedin.com/in/mingeunchoi/" class="icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://github.com/mchoi327" target="_blank" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="files/20251218_Resume_Mingeun_Choi.pdf" class="icon-btn" download="Mingeun_Choi_Resume_2025-12-18.pdf" aria-label="Download CV"><i class="fa-solid fa-file-arrow-down"></i></a>
-          <a href="mailto:mingeun.choi@gatech.edu" class="icon-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        </div>
       </div>
     </div>
   </section>

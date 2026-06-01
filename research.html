@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Research | Mingeun Choi</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Page-specific styles (matched to About/Publications/Teaching volume) -->
+  <style>
+    :root{
+      --color-primary: #0b2b4c;
+      --color-accent:  #1e88e5;
+      --container-max: 880px;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+    }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: #222; font-weight: 600; }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: 'Merriweather', serif;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    main { padding: 0 1.25rem; }
+    @media (min-width: 768px){
+      main { max-width: var(--container-max); margin: 0 auto; }
+    }
+
+    .pub-category { margin: 3rem 0; }
+    .pub-category h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .pub-list { list-style: none; padding-left: 0; margin: 0; }
+    .pub-list li {
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+      color: #555;
+      font-size: 1rem;
+    }
+    .experience-list {
+      margin: 0.5rem 0 0 0;
+      padding-left: 1.25rem;
+    }
+    .experience-list li {
+      list-style: disc;
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      padding: 2rem 1.25rem;
+      text-align: center;
+      color: #777;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- shared header -->
+  <div id="site-header"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        const container = document.getElementById('site-header');
+        container.innerHTML = html;
+
+        const btn = container.querySelector('.menu-toggle');
+        const nav = container.querySelector('nav');
+        if (btn && nav) {
+          btn.addEventListener('click', () => nav.classList.toggle('open'));
+        }
+      })
+      .catch(err => console.error('Header load failed:', err));
+  </script>
+
+  <!-- Section Title -->
+  <section class="hero">
+    <h1>Research</h1>
+  </section>
+
+  <main>
+    <!-- Research Experience -->
+    <section class="pub-category">
+      <h2>Research Experience</h2>
+      <ul class="pub-list">
+        <li>
+          <strong>Georgia Institute of Technology</strong><br>
+          Micro Nano Devices and Systems Laboratory<br>
+          Graduate Research Assistant, Jan. 2023 – Present
+          <ul class="experience-list">
+            <li>Supported by the Center for Heterogeneous Integration of Micro Electronic Systems (CHIMES), led by the Semiconductor Research Corporation (SRC) and sponsored by the Defense Advanced Research Projects Agency (DARPA) to develop advanced thermal management solutions for heterogeneously integrated electronics.</li>
+            <li>Enabled distributed vertical power delivery (VPD) architectures with substrate-embedded microfluidic cooling in 3D-stacked processors that sustain current densities exceeding 2 A/mm² at up to 80% efficiency.</li>
+            <li>Developed high-thermal-conductivity aluminum nitride (AlN) thin films as heat spreaders using low-pressure high-power impulse magnetron sputtering (HiPIMS) with “plus kick voltage” to achieve deposition rates above 25 nm/min at temperatures below 200°C.</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Georgia Institute of Technology</strong><br>
+          Micro Nano Devices and Systems Laboratory<br>
+          Graduate Research Assistant, Aug. 2023 – Present
+          <ul class="experience-list">
+            <li>Sponsored by the Thermal Modeling of Nanoscale Transistors (Thermonat) program operated by Defense Advanced Research Projects Agency (DARPA) to develop innovative multi-scale thermal management approaches for nanoscale transistors as part of their Microsystems Exploration (µE) initiative.</li>
+            <li>Developed a machine learning–accelerated multi-scale modeling framework that predicts spatio-temporal temperature profiles in 14 nm fin field-effect transistor (FinFET) arrays nearly 2300 times faster than conventional finite-volume method (FVM).</li>
+            <li>Developed a device-to-circuit electrothermal framework for gate-all-around nanosheet field-effect transistors (GAA NSFETs) with backside power delivery networks (BSPDN) by calibrating self-heating effect (SHE)–aware BSIM-CMG models to predict over 10% frequency degradation.</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Seoul National University</strong><br>
+          Turbomachinery Laboratory<br>
+          Graduate Student Researcher, Mar. 2017 – Feb. 2019
+          <ul class="experience-list">
+            <li>Sponsored by Doosan Enerbility to construct and validate an engine-representative gas turbine test rig aimed at reducing hot gas ingestion and to investigate the impact of swirling sealing flows on rim sealing performance.</li>
+            <li>Constructed a scaled test rig of the first high-pressure turbine (HPT) stage in H<sup>+</sup> gas turbines, and demonstrated that reducing rim seal clearance decreases hot gas ingestion by significant margins.</li>
+            <li>Developed a patented rotor disk attachment “swirler” that enhances rim sealing performance up to 23% by increasing swirl in the wheel-space, potentially improving overall efficiency and power of the gas turbine by up to 0.02 pp and 0.18%.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © Mingeun Choi 2026
+  </footer>
+</body>
+</html>
