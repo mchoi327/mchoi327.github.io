@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Teaching | Mingeun Choi</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 
   <!-- Page-specific styles (matched to About/Publications volume) -->
   <style>
@@ -86,21 +87,6 @@
 
   <!-- shared header -->
   <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => {
-        const container = document.getElementById('site-header');
-        container.innerHTML = html;
-
-        const btn = container.querySelector('.menu-toggle');
-        const nav = container.querySelector('nav');
-        if (btn && nav) {
-          btn.addEventListener('click', () => nav.classList.toggle('open'));
-        }
-      })
-      .catch(err => console.error('Header load failed:', err));
-  </script>
 
   <!-- Section Title -->
   <section class="hero">

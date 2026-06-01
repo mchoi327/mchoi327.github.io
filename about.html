@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Mingeun Choi</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 
   <!-- Page-specific styles (matched to Publications volume) -->
   <style>
@@ -85,22 +86,6 @@
 
   <!-- shared header -->
   <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => {
-        const container = document.getElementById('site-header');
-        container.innerHTML = html;
-
-        // 메뉴 토글
-        const btn = container.querySelector('.menu-toggle');
-        const nav = container.querySelector('nav');
-        if (btn && nav) {
-          btn.addEventListener('click', () => nav.classList.toggle('open'));
-        }
-      })
-      .catch(err => console.error('Header load failed:', err));
-  </script>
 
   <!-- Section Title -->
   <section class="hero">
@@ -237,22 +222,14 @@
       </ul>
     </section>
 
-    <!-- Research Interests (optional) -->
-    <!--
     <section class="pub-category">
       <h2>Research Interests</h2>
       <ul class="pub-list">
         <li>
-          My research focuses on developing advanced thermal management solutions for heterogeneously
-          integrated electronics, addressing both macro and micro scale challenges. At the macro level,
-          I design vertical power delivery architectures with substrate embedded microfluidic cooling.
-          At the micro level, I investigate high thermal conductivity thin films as heat spreaders for
-          localized hotspots, and develop a machine learning accelerated multi scale modeling framework
-          for real time temperature prediction in FinFET arrays.
+          My research focuses on electrothermal modeling and thin-film thermal-property characterization in heterogeneously integrated electronics. I develop (1) an automated electrothermal modeling framework to co-optimize vertical power delivery architecture and substrate-embedded microfluidic cooling for thermally sustainable, high-power-density operation; (2) a machine-learning-accelerated electrothermal modeling framework to predict spatiotemporal temperature fields from individual FinFET devices to arrays for fast, accurate, self-heating-aware evaluation; and (3) a machine-learning-enabled frequency-domain thermoreflectance inversion model to estimate the thermal properties of thin films for high-throughput, low-uncertainty characterization. Together, I aim to build a self-consistent multiscale workflow linking the device and package levels with high-fidelity thermal-property inputs.
         </li>
       </ul>
     </section>
-    -->
   </main>
 
   <footer>
