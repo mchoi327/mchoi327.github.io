@@ -138,7 +138,7 @@
       background: #fff;
     }
     .news-card-lite img {
-      width: 160px; height: 120px; object-fit: cover; border-radius: 0.4rem;
+      width: 160px; height: 120px; object-fit: contain; object-position: center; border-radius: 0.4rem; background: #f3f4f6;
     }
     .news-meta time {
       display: inline-block;
@@ -169,7 +169,7 @@
     @media (max-width: 640px) {
       .hero-title-row { justify-content: center; }
       .news-card-lite { grid-template-columns: 1fr; }
-      .news-card-lite img { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+      .news-card-lite img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #f3f4f6; }
     }
 
   </style>
@@ -207,13 +207,13 @@
           </div>
         </div>
         <p>
-          PhD Student in Mechanical Engineering at Georgia Tech,<br>
+          Ph.D. Student in Mechanical Engineering at Georgia Tech,<br>
           focusing on electrothermal modeling and thermoreflectance methods.<br>
           <span class="hero-docs">
             <span>Download:</span>
-            <a href="files/20260531_Resume_Mingeun_Choi.pdf" download="Mingeun_Choi_Resume_2026-05-31.pdf">Resume</a>
+            <a id="resume-link" href="files/20260531_Resume_Mingeun_Choi.pdf" download="Mingeun_Choi_Resume_2026-05-31.pdf">Resume</a>
             <span aria-hidden="true">·</span>
-            <a href="files/20260531_CV_Mingeun_Choi.pdf" download="Mingeun_Choi_CV_2026-05-31.pdf">CV</a>
+            <a id="cv-link" href="files/20260531_CV_Mingeun_Choi.pdf" download="Mingeun_Choi_CV_2026-05-31.pdf">CV</a>
           </span>
         </p>
       </div>
@@ -240,6 +240,37 @@
   <footer>
     © Mingeun Choi 2026
   </footer>
+
+  <script>
+    (async function loadDocumentLinks() {
+      const resumeLink = document.getElementById('resume-link');
+      const cvLink = document.getElementById('cv-link');
+      if (!resumeLink || !cvLink) return;
+
+      const formatDownloadName = (kind, filename) => {
+        const match = filename.match(/^(\d{4})(\d{2})(\d{2})_/);
+        if (!match) return `Mingeun_Choi_${kind}.pdf`;
+        return `Mingeun_Choi_${kind}_${match[1]}-${match[2]}-${match[3]}.pdf`;
+      };
+
+      try {
+        const response = await fetch('files/manifest.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Could not load files manifest');
+        const manifest = await response.json();
+
+        if (manifest.resume) {
+          resumeLink.href = `files/${manifest.resume}`;
+          resumeLink.download = formatDownloadName('Resume', manifest.resume);
+        }
+        if (manifest.cv) {
+          cvLink.href = `files/${manifest.cv}`;
+          cvLink.download = formatDownloadName('CV', manifest.cv);
+        }
+      } catch (error) {
+        console.error('Document link manifest load failed:', error);
+      }
+    })();
+  </script>
 
   <script>
     // Auto-highlight most recent news from news.html
