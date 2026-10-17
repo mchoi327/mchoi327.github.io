@@ -1,60 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research | Mingeun Choi</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="site.js" defer></script>
-</head>
-<body>
-
-  <!-- shared header -->
-  <div id="site-header"><a class="header-fallback" href="index.html">Home</a></div>
-
-  <!-- Section Title -->
-  <section class="hero">
-    <h1>Research</h1>
-  </section>
-
-  <main>
-    <p class="page-intro">I study heat transport and thermal management in heterogeneously integrated electronics, combining electrothermal simulation, machine learning, and thin-film thermal characterization.</p>
-
-    <section class="pub-category" id="power-delivery">
-      <h2>Electrothermal co-design</h2>
-      <p>Bringing power conversion closer to a processor shortens electrical paths, but also concentrates heat beneath the chip. Power delivery and cooling therefore need to be evaluated together.</p>
-      <p>I develop automated, self-consistent electrothermal models of distributed vertical power delivery architectures with substrate-embedded microfluidic cooling. These models connect electrical losses, temperature-dependent device behavior, and cooling requirements to evaluate design choices.</p>
-      <p>In our study of a 48-to-1 V architecture supplying 1 kW, accounting for electrothermal coupling increased the predicted system losses by about 15.8% relative to the initial uncoupled estimate, demonstrating why thermal feedback matters to system design.</p>
-      <p class="related-links">Related work: <a href="publications.html#journal8">Self-consistent electrothermal modeling</a> · <a href="publications.html#journal10">Vertical power delivery design framework</a> · <a href="publications.html#proceedings4">Embedded microchannel cooling</a></p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research | Mingeun Choi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+    <div id="site-header"><a href="index.html">Home</a></div>
+    <section class="hero">
+      <h1>Research</h1>
     </section>
-
-    <section class="pub-category" id="thermal-modeling">
-      <h2>Machine-learning-accelerated thermal modeling</h2>
-      <p>Self-heating and thermal crosstalk affect device performance, yet repeatedly resolving transient temperature fields is computationally expensive.</p>
-      <p>I develop deep operator network (DeepONet) surrogate models for FinFET arrays and vertical power delivery modules. These models learn mappings between power inputs and temperature fields to support rapid thermal evaluation.</p>
-      <p>For a 3.5 ns transient response in FinFET arrays, our trained surrogate achieved approximately 2,500-fold speedup over the finite-volume solver, with over 92% of nodal errors below 3 K. Related device-to-circuit work examines how self-heating in gate-all-around nanosheet transistors with backside power delivery affects circuit performance.</p>
-      <p class="related-links">Related work: <a href="publications.html#journal9">FinFET temperature-field prediction</a> · <a href="publications.html#proceedings12">DeepONet for vertical power delivery</a> · <a href="publications.html#proceedings10">Nanosheet device-to-circuit analysis</a></p>
-    </section>
-
-    <section class="pub-category" id="thin-films">
-      <h2>Thin-film thermal characterization</h2>
-      <p>Thermal models depend on material properties that can differ substantially from bulk values in nanoscale films. Measuring these properties helps connect material development with device and package design.</p>
-      <p>I am developing a physics-informed neural network surrogate for frequency-domain thermoreflectance (FDTR) to estimate depth-dependent thermal properties of thin films. My collaborative work also investigates aluminum nitride and vertically aligned hexagonal boron nitride films for thermal management.</p>
-      <p class="related-links">Related work: <a href="publications.html#journal2">Thermally conductive AlN films</a> · <a href="publications.html#journal11">Quasi-ballistic transport in h-BN</a></p>
-    </section>
-
-    <section class="pub-category">
-      <h2>Earlier work: turbine rim sealing</h2>
-      <p>At Seoul National University, I constructed and validated a turbine test rig to study hot-gas ingestion and rim sealing. I developed a patented rotor-disk attachment, the “swirler,” to investigate how enhanced wheel-space swirl improves sealing performance.</p>
-      <p class="related-links">Related work: <a href="publications.html#journal1">Swirl enhancement and rim seal performance</a></p>
-    </section>
-  </main>
-
-  <footer>
-    © Mingeun Choi 2026
-  </footer>
-</body>
+    <main>
+      <p>I study heat transport and thermal management in heterogeneously integrated electronics, combining electrothermal simulation, machine learning, and thin-film thermal characterization.</p>
+      <section class="content-section" id="power-delivery">
+        <h2>Electrothermal co-design</h2>
+        <p>Bringing power conversion closer to a processor shortens electrical paths, but also concentrates heat beneath the chip. Power delivery and cooling therefore need to be evaluated together.</p>
+        <p>I develop automated, self-consistent electrothermal models of distributed vertical power delivery architectures with substrate-embedded microfluidic cooling. These models connect electrical losses, temperature-dependent device behavior, and cooling requirements to evaluate design choices.</p>
+        <p>In our study of a 48-to-1 V architecture supplying 1 kW, accounting for electrothermal coupling increased the predicted system losses by about 15.8% relative to the initial uncoupled estimate, demonstrating why thermal feedback matters to system design.</p>
+        <p class="related-links">Related work: <a href="publications.html#journal8">Self-consistent electrothermal modeling</a> · <a href="publications.html#journal10">Vertical power delivery design framework</a> · <a href="publications.html#proceedings4">Embedded microchannel cooling</a></p>
+      </section>
+      <section class="content-section" id="thermal-modeling">
+        <h2>Machine-learning-accelerated thermal modeling</h2>
+        <p>Self-heating and thermal crosstalk affect device performance, yet repeatedly resolving transient temperature fields is computationally expensive.</p>
+        <p>I develop deep operator network (DeepONet) surrogate models for FinFET arrays and vertical power delivery modules. These models learn mappings between power inputs and temperature fields to support rapid thermal evaluation.</p>
+        <p>For a 3.5 ns transient response in FinFET arrays, our trained surrogate achieved approximately 2,500-fold speedup over the finite-volume solver, with over 92% of nodal errors below 3 K. Related device-to-circuit work examines how self-heating in gate-all-around nanosheet transistors with backside power delivery affects circuit performance.</p>
+        <p class="related-links">Related work: <a href="publications.html#journal9">FinFET temperature-field prediction</a> · <a href="publications.html#proceedings12">DeepONet for vertical power delivery</a> · <a href="publications.html#proceedings10">Nanosheet device-to-circuit analysis</a></p>
+      </section>
+      <section class="content-section" id="thin-films">
+        <h2>Thin-film thermal characterization</h2>
+        <p>Thermal models depend on material properties that can differ substantially from bulk values in nanoscale films. Measuring these properties helps connect material development with device and package design.</p>
+        <p>I am developing a physics-informed neural network surrogate for frequency-domain thermoreflectance (FDTR) to estimate depth-dependent thermal properties of thin films. My collaborative work also investigates aluminum nitride and vertically aligned hexagonal boron nitride films for thermal management.</p>
+        <p class="related-links">Related work: <a href="publications.html#journal2">Thermally conductive AlN films</a> · <a href="publications.html#journal11">Quasi-ballistic transport in h-BN</a></p>
+      </section>
+      <section class="content-section">
+        <h2>Earlier work: turbine rim sealing</h2>
+        <p>At Seoul National University, I constructed and validated a turbine test rig to study hot-gas ingestion and rim sealing. I developed a patented rotor-disk attachment, the “swirler,” to investigate how enhanced wheel-space swirl improves sealing performance.</p>
+        <p class="related-links">Related work: <a href="publications.html#journal1">Swirl enhancement and rim seal performance</a></p>
+      </section>
+    </main>
+    <footer>© Mingeun Choi 2026</footer>
+  </body>
 </html>
