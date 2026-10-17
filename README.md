@@ -11,6 +11,8 @@ Static HTML, CSS, and JavaScript for the GitHub Pages website. No build step or 
 - `teaching.html`: teaching, mentoring, and certifications.
 - `news.html`: dated announcements and images. Preserve historical dates; use an optional image and an ISO `datetime` on each article.
 
+Add News entries only for events the owner requests; a publication or citation-status update does not itself authorize a news post. Keep badges immediately before the associated citation or award name, within the same text flow.
+
 Use the current CV as the factual reference. Preserve website-only abstracts, news, and images. Do not infer an abstract or an exact news date from a CV summary. First/corresponding author marks apply to papers and presentations, not patents.
 
 ## Shared template

@@ -67,6 +67,7 @@
       meta.className = 'news-meta';
       const heading = document.createElement('h3');
       const link = document.createElement('a');
+      link.className = 'news-card-link';
       link.href = latest.id ? `news.html#${latest.id}` : 'news.html';
       link.textContent = latest.querySelector('h3').textContent.trim();
       heading.append(link);
