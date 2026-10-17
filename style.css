@@ -31,10 +31,11 @@ sup { font-size: 0.75em; line-height: 0; }
 [hidden] { display: none !important; }
 
 /* One reading width and spacing hierarchy across all pages. */
-main { max-width: 880px; margin: 0 auto; padding: 0 var(--space-medium); }
-.pub-category, .news-list { margin-block: var(--space-large); }
-.pub-category > h2 { border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-small); margin-bottom: var(--space-medium); }
-.pub-list, .entry-list, .award-list, .plain-list, .course-list { list-style: none; padding: 0; }
+main, .site-header, .hero { max-width: 880px; margin: 0 auto; }
+main { padding: 0 var(--space-medium); }
+.content-section, .news-list { margin-block: var(--space-large); }
+.content-section > h2 { border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-small); margin-bottom: var(--space-medium); }
+.pub-list, .entry-list, .award-list, .plain-list, .course-list, .research-topics, .recent-news-list { list-style: none; padding: 0; }
 .pub-list > li + li, .award-list > li + li { margin-top: var(--space-small); }
 .entry-list > li + li, .entry-group + .entry-group { margin-top: var(--space-medium); }
 .detail-list { padding-left: var(--space-medium); }
@@ -48,11 +49,11 @@ main { max-width: 880px; margin: 0 auto; padding: 0 var(--space-medium); }
 .author-legend { margin-top: var(--space-small); }
 
 /* Shared navigation and page headings. */
-.site-header { max-width: 880px; margin: 0 auto; padding: var(--space-medium); }
+.site-header { padding: var(--space-medium); }
 .site-header nav { display: flex; flex-wrap: wrap; gap: var(--space-small) var(--space-medium); padding-bottom: var(--space-medium); border-bottom: 1px solid var(--color-border); }
 .site-header nav a { color: var(--color-primary); font-weight: 600; }
 .site-header nav a[aria-current='page'] { text-decoration: underline; text-underline-offset: 0.35em; }
-.hero { max-width: 880px; margin: 0 auto; padding: var(--space-medium) var(--space-medium) 0; text-align: left; }
+.hero { padding: var(--space-medium) var(--space-medium) 0; text-align: left; }
 .hero + main > :first-child { margin-top: var(--space-medium); }
 .hero-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-medium); }
 .profile-frame { width: 160px; height: 200px; flex-shrink: 0; overflow: hidden; }
@@ -60,12 +61,10 @@ main { max-width: 880px; margin: 0 auto; padding: 0 var(--space-medium); }
 .profile-photo { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(2.8); transform-origin: 43% 58%; }
 .home-intro { margin-top: var(--space-medium); }
 .home-intro > p { margin-top: var(--space-medium); }
-.research-topics { list-style: none; padding: 0; }
 .research-topics > li + li { margin-top: var(--space-medium); }
 .research-topics > li > a { font-weight: 600; }
-.pub-category > p + p { margin-top: var(--space-small); }
+.content-section > p + p { margin-top: var(--space-small); }
 .related-links { color: var(--color-muted); }
-.recent-news-list { list-style: none; padding: 0; }
 .recent-news-list li { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--space-small); }
 .recent-news-list li + li, .archive-link { margin-top: var(--space-small); }
 .recent-news-list time { color: var(--color-muted); }

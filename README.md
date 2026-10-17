@@ -19,7 +19,9 @@ Main navigation is Home, Research, Publications, and Teaching. News remains acce
 
 ## Shared template
 
-- All styling lives in `style.css`; do not add page-specific style blocks.
+- All styling lives in `style.css`; do not add page-specific style blocks. Use `content-section` for ordinary content sections across pages.
+- Use two-space HTML indentation. Keep inline citation/author markup together and preserve abstract text, including whitespace, because abstract panels use `white-space: pre-wrap`.
+- Shared navigation stays in `header.html`; page content remains static HTML. Keep the small head/footer markup local rather than adding another runtime fetch or a build system.
 - Open Sans is the body font; Merriweather is the heading font. H1/H2/H3 use 2.5/1.75/1.25rem, body and abstracts 1rem, and metadata/badges 0.875rem.
 - Navigation, page titles, Home, and body content share an 880px outer width. Ordinary entries use the small gap; independent experience blocks use the medium gap; sections use the large gap. Internal lines and bullets have normal line spacing.
 - `entry-heading` pairs content with `entry-meta` on the right; mobile displays metadata below. `entry-list` groups experience blocks, `pub-list` citations, and `award-list` awards.
