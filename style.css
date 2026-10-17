@@ -57,7 +57,7 @@ main { padding: 0 var(--space-medium); }
 .hero-inner { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: var(--space-medium); }
 .profile-frame { position: relative; overflow: hidden; }
 /* Frame the uncropped source around the face without modifying the image file. */
-.profile-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(3.4); transform-origin: 43% 50%; }
+.profile-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(4.2); transform-origin: 45% 50%; }
 .home-intro { margin-top: var(--space-medium); }
 .home-intro > p { margin-top: var(--space-medium); }
 .research-topics > li + li { margin-top: var(--space-medium); }
