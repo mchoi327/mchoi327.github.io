@@ -89,7 +89,9 @@ main { max-width: 880px; margin: 0 auto; padding: 0 var(--space-medium); }
 .news-content > * + *, .news-meta > * + * { margin-top: var(--space-small); }
 .news-content h3 a { color: inherit; }
 .news-content time, .news-meta time { display: block; color: var(--color-muted); font-size: 0.875rem; }
-.news-card-lite { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: var(--space-medium); padding: var(--space-medium); }
+.news-card-lite { position: relative; display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: var(--space-medium); padding: var(--space-medium); }
+.news-card-link::after { content: ""; position: absolute; inset: 0; }
+.news-meta p a, .news-meta > .btn { position: relative; z-index: 1; }
 .news-card-text { grid-template-columns: minmax(0, 1fr); }
 .news-thumb img { width: 160px; height: 120px; object-fit: contain; background: #f3f4f6; }
 .btn { display: inline-block; padding: var(--space-small) 0; font-weight: 600; }
