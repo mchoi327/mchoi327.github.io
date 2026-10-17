@@ -4,7 +4,7 @@ Static HTML, CSS, and JavaScript for the GitHub Pages website. No build step or 
 
 ## Content
 
-- `index.html`: introduction, research directions, social links, and document downloads. Recent News is selected automatically from dated articles in `news.html`.
+- `index.html`: introduction, research directions, text links, and the CV download. Recent News is selected automatically from dated articles in `news.html`.
 - `about.html`: appointments, education, leadership, academic service, memberships, and awards.
 - `publications.html`: citations, author roles, award/news links, and existing abstracts. Entry IDs match the CV source for comparison. Edit this HTML directly; it is not generated during deployment.
 - `research.html`: research experience and project descriptions.
@@ -26,8 +26,8 @@ Use the current CV as the factual reference. Preserve website-only abstracts, ne
 
 ## Downloads and publishing
 
-Build the CV/resume in the parent workspace with its `build.ps1`. Copy the verified PDFs into `files/` and update both `files/manifest.json` and the fallback links/download names in `index.html`. Older dated PDFs remain available for existing links. The current files are dated 2026-10-17; the CV is six pages and the resume is two pages.
+Build the CV in the parent workspace with `./build.ps1 -Mode cv`. Copy the verified CV PDF into `files/` and update both `files/manifest.json` and the fallback link/download name in `index.html`. Older dated CV PDFs remain available for existing links. The current CV is dated 2026-10-17 and has six pages. Resume PDFs are not distributed on the website; the parent workspace retains the resume source and output.
 
 This is a separate Git repository inside the CV workspace. Commit website changes here. A push to `main` can publish through GitHub Pages; local commits alone do not change the public site.
 
-Before publishing, check every page at desktop and narrow mobile widths, keyboard navigation and abstract toggles, news preview and download links, and preserved abstracts. External fonts and icons still use Google Fonts and Font Awesome CDNs.
+Before publishing, check every page at desktop and narrow mobile widths, keyboard navigation and abstract toggles, news preview and download links, and preserved abstracts. External fonts use Google Fonts.

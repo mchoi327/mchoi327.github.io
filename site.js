@@ -22,19 +22,16 @@
 
   async function loadDocumentLinks() {
     const cv = document.getElementById('cv-link');
-    const resume = document.getElementById('resume-link');
-    if (!cv || !resume) return;
+    if (!cv) return;
     try {
       const response = await fetch('files/manifest.json', { cache: 'no-store' });
       if (!response.ok) throw new Error('Could not load files manifest');
       const manifest = await response.json();
-      for (const [kind, link] of [['CV', cv], ['Resume', resume]]) {
-        const file = manifest[kind.toLowerCase()];
-        const match = typeof file === 'string' && file.match(/^(\d{4})(\d{2})(\d{2})_(CV|Resume)_Mingeun_Choi\.pdf$/);
-        if (!match || match[4] !== kind) throw new Error('Invalid document filename');
-        link.href = `files/${file}`;
-        link.download = `Mingeun_Choi_${kind}_${match[1]}-${match[2]}-${match[3]}.pdf`;
-      }
+      const file = manifest.cv;
+      const match = typeof file === 'string' && file.match(/^(\d{4})(\d{2})(\d{2})_CV_Mingeun_Choi\.pdf$/);
+      if (!match) throw new Error('Invalid document filename');
+      cv.href = `files/${file}`;
+      cv.download = `Mingeun_Choi_CV_${match[1]}-${match[2]}-${match[3]}.pdf`;
     } catch (error) {
       // Static links remain usable if the manifest cannot be loaded.
       console.error('Document link manifest load failed:', error);
