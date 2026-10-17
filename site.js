@@ -32,3 +32,13 @@
     loadHeader();
   }
 })();
+
+// Native buttons supply Enter/Space activation; hidden keeps collapsed text out of navigation.
+document.querySelectorAll('.badge-abstract').forEach(button => {
+  const abstract = document.getElementById(button.getAttribute('aria-controls'));
+  if (!abstract) return;
+  button.addEventListener('click', () => {
+    abstract.hidden = !abstract.hidden;
+    button.setAttribute('aria-expanded', String(!abstract.hidden));
+  });
+});

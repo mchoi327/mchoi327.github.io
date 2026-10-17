@@ -185,13 +185,13 @@
           </div>
         </div>
         <p>
-          Ph.D. Student in Mechanical Engineering at Georgia Tech,<br>
+          Ph.D. Candidate in Mechanical Engineering at Georgia Tech,<br>
           focusing on electrothermal modeling and thermoreflectance methods.<br>
           <span class="hero-docs">
             <span>Download:</span>
-            <a id="resume-link" href="files/20260531_Resume_Mingeun_Choi.pdf" download="Mingeun_Choi_Resume_2026-05-31.pdf">Resume</a>
+            <a id="resume-link" href="files/20261017_Resume_Mingeun_Choi.pdf" download="Mingeun_Choi_Resume_2026-10-17.pdf">Resume</a>
             <span aria-hidden="true">·</span>
-            <a id="cv-link" href="files/20260531_CV_Mingeun_Choi.pdf" download="Mingeun_Choi_CV_2026-05-31.pdf">CV</a>
+            <a id="cv-link" href="files/20261017_CV_Mingeun_Choi.pdf" download="Mingeun_Choi_CV_2026-10-17.pdf">CV</a>
           </span>
         </p>
       </div>
@@ -201,9 +201,12 @@
   <main>
     <section class="pub-category">
       <h2>Welcome</h2>
-      <p class="lead">
-        My research focuses on electrothermal modeling and thin-film thermal-property characterization in heterogeneously integrated electronics. I develop (1) an automated electrothermal modeling framework to co-optimize vertical power delivery architecture and substrate-embedded microfluidic cooling for thermally sustainable, high-power-density operation; (2) a machine-learning-accelerated electrothermal modeling framework to predict spatiotemporal temperature fields from individual FinFET devices to arrays for fast, accurate, self-heating-aware evaluation; and (3) a machine-learning-enabled frequency-domain thermoreflectance inversion model to estimate the thermal properties of thin films for high-throughput, low-uncertainty characterization. Together, I aim to build a self-consistent multiscale workflow linking the device and package levels with high-fidelity thermal-property inputs.
-      </p>
+      <p class="lead">My research focuses on electrothermal modeling and thin-film thermal-property characterization for heterogeneously integrated electronics.</p>
+      <ul class="detail-list">
+        <li>Electrothermal co-design of vertical power delivery and substrate-embedded microfluidic cooling.</li>
+        <li>Machine-learning-accelerated prediction of transistor temperature fields, from individual devices to arrays.</li>
+        <li>Machine-learning-enabled frequency-domain thermoreflectance inversion for thin-film thermal-property characterization.</li>
+      </ul>
     </section>
 
     <!-- Recent News (auto-populated from news.html) -->
@@ -293,14 +296,11 @@
   
         // Build lightweight card (카드 전체 클릭 → news.html)
         const wrap = document.createElement('div');
-        wrap.className = 'news-card-lite';
+        wrap.className = imgEl ? 'news-card-lite' : 'news-card-lite news-card-text';
         wrap.setAttribute('role', 'link');
         wrap.setAttribute('tabindex', '0');
         wrap.innerHTML = `
-          <div class="news-thumb">
-            <img src="${imgEl ? imgEl.getAttribute('src') : 'images/placeholder-news.jpg'}"
-                 alt="${imgEl ? (imgEl.getAttribute('alt') || 'News image') : 'News image'}">
-          </div>
+          ${imgEl ? `<div class="news-thumb"><img src="${imgEl.getAttribute('src')}" alt="${imgEl.getAttribute('alt') || ''}"></div>` : ''}
           <div class="news-meta">
             <time>${pick.timeText || ''}</time>
             <h3>${titleText}</h3>
