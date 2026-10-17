@@ -6,87 +6,14 @@
   <title>Teaching | Mingeun Choi</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="site.js" defer></script>
-
-  <!-- Page-specific styles (matched to About/Publications volume) -->
-  <style>
-    :root{
-      --color-primary: #0b2b4c;
-      --color-accent:  #1e88e5;
-      --container-max: 880px;
-    }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: #333;
-      line-height: 1.6;
-      margin: 0;
-    }
-    a { color: var(--color-accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    strong { color: #222; font-weight: 600; }
-
-    .hero {
-      background: linear-gradient(135deg, #ffffff 0%, #eef2f5 100%);
-      text-align: center;
-      padding: 4rem 2rem;
-      font-family: 'Merriweather', serif;
-    }
-    .hero h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: var(--color-primary);
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-
-    main { padding: 0 1.25rem; }
-    @media (min-width: 768px){
-      main { max-width: var(--container-max); margin: 0 auto; }
-    }
-
-    .pub-category { margin: 3rem 0; }
-    .pub-category h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.75rem;
-      color: var(--color-primary);
-      border-bottom: 2px solid var(--color-accent);
-      display: inline-block;
-      padding-bottom: 0.25rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .pub-list { list-style: none; padding-left: 0; margin: 0; }
-    .pub-list li {
-      margin-bottom: 1.25rem;
-      line-height: 1.5;
-      color: #555;
-      font-size: 1rem;
-    }
-    .course-list {
-      list-style: none;
-      margin: 0.5rem 0 0 0;
-      padding-left: 0;
-    }
-    .course-list li {
-      margin-bottom: 0.25rem;
-    }
-
-    footer {
-      padding: 2rem 1.25rem;
-      text-align: center;
-      color: #777;
-      font-size: 0.95rem;
-    }
-  </style>
 </head>
 <body>
 
   <!-- shared header -->
-  <div id="site-header"></div>
+  <div id="site-header"><a class="header-fallback" href="index.html">Home</a></div>
 
   <!-- Section Title -->
   <section class="hero">
@@ -97,47 +24,76 @@
     <section class="pub-category">
       <h2>Teaching Experience</h2>
       <ul class="entry-list">
-        <li><strong>Georgia Institute of Technology</strong><div class="affiliation">George W. Woodruff School of Mechanical Engineering</div><div class="entry-heading"><span>Teaching Practicum</span><span class="entry-date">Jan. 2024–May 2024</span></div>      <ul class="course-list">
-        <li><div class="entry-heading"><span>Heat Transfer (ME3345)</span><span class="entry-date">Spring 2024</span></div></li>
-      </ul></li>
-        <li><strong>Republic of Korea Air Force Academy</strong><div class="affiliation">Department of Mechanical Engineering</div><div class="entry-heading"><span>Instructor – Assistant Professor</span><span class="entry-date">Jun. 2019–May 2022</span></div>      <ul class="course-list">
-        <li><div class="entry-heading"><span>Fluid Mechanics (A0532)</span><span class="entry-date">Spring 2020, Spring 2022</span></div></li>
-        <li><div class="entry-heading"><span>Applied Fluid Mechanics (A1154)</span><span class="entry-date">Spring 2021</span></div></li>
-        <li><div class="entry-heading"><span>Thermodynamics (A0438)</span><span class="entry-date">Fall 2022</span></div></li>
-        <li><div class="entry-heading"><span>Heat Transfer (A0439)</span><span class="entry-date">Fall 2019, Fall 2020, Fall 2021</span></div></li>
-        <li><div class="entry-heading"><span>Energy Systems Engineering (A1692)</span><span class="entry-date">Fall 2022</span></div></li>
-        <li><div class="entry-heading"><span>Engineering Mechanics: Statics and Dynamics (A0066)</span><span class="entry-date">Fall 2019, Fall 2020, Spring 2022</span></div></li>
-        <li><div class="entry-heading"><span>Mechanical Component Design and Drawing (A0151)</span><span class="entry-date">Fall 2019, Fall 2020</span></div></li>
-        <li><div class="entry-heading"><span>Manufacturing Processes and Practice (A0138)</span><span class="entry-date">Spring 2021</span></div></li>
-        <li><div class="entry-heading"><span>Mechanical Engineering Laboratory (A0145)</span><span class="entry-date">Spring 2021, Spring 2022</span></div></li>
-        <li><div class="entry-heading"><span>Practical Research on Military Task (A1610)</span><span class="entry-date">Fall 2020, Fall 2021</span></div></li>
-      </ul></li>
-        <li><strong>Seoul National University</strong><div class="affiliation">Department of Mechanical Engineering</div><div class="entry-heading"><span>Teaching Assistant</span><span class="entry-date">Mar. 2018–Dec. 2018</span></div>      <ul class="course-list">
-        <li><div class="entry-heading"><span>Mechanical System Design Project 2 (M2794.004300)</span><span class="entry-date">Fall 2018</span></div></li>
-        <li><div class="entry-heading"><span>Mechanical System Design Project 1 (M2794.004200)</span><span class="entry-date">Spring 2018</span></div></li>
-        <li><div class="entry-heading"><span>Fluid Mechanics (M2794.001300)</span><span class="entry-date">Spring 2018</span></div></li>
-      </ul></li>
+        <li><strong>Georgia Institute of Technology</strong><div class="affiliation">George W. Woodruff School of Mechanical Engineering</div>
+<div class="entry-heading"><span>Teaching Practicum</span><span class="entry-meta">Jan. 2024–May 2024</span></div>
+      <ul class="course-list">
+        <li><div class="entry-heading"><span>Heat Transfer (ME3345)</span><span class="entry-meta">Spring 2024</span></div>
+</li>
+      </ul>
+</li>
+        <li><strong>Republic of Korea Air Force Academy</strong><div class="affiliation">Department of Mechanical Engineering</div>
+<div class="entry-heading"><span>Instructor – Assistant Professor</span><span class="entry-meta">Jun. 2019–May 2022</span></div>
+      <ul class="course-list">
+        <li><div class="entry-heading"><span>Fluid Mechanics (A0532)</span><span class="entry-meta">Spring 2020, Spring 2022</span></div>
+</li>
+        <li><div class="entry-heading"><span>Applied Fluid Mechanics (A1154)</span><span class="entry-meta">Spring 2021</span></div>
+</li>
+        <li><div class="entry-heading"><span>Thermodynamics (A0438)</span><span class="entry-meta">Fall 2022</span></div>
+</li>
+        <li><div class="entry-heading"><span>Heat Transfer (A0439)</span><span class="entry-meta">Fall 2019, Fall 2020, Fall 2021</span></div>
+</li>
+        <li><div class="entry-heading"><span>Energy Systems Engineering (A1692)</span><span class="entry-meta">Fall 2022</span></div>
+</li>
+        <li><div class="entry-heading"><span>Engineering Mechanics: Statics and Dynamics (A0066)</span><span class="entry-meta">Fall 2019, Fall 2020, Spring 2022</span></div>
+</li>
+        <li><div class="entry-heading"><span>Mechanical Component Design and Drawing (A0151)</span><span class="entry-meta">Fall 2019, Fall 2020</span></div>
+</li>
+        <li><div class="entry-heading"><span>Manufacturing Processes and Practice (A0138)</span><span class="entry-meta">Spring 2021</span></div>
+</li>
+        <li><div class="entry-heading"><span>Mechanical Engineering Laboratory (A0145)</span><span class="entry-meta">Spring 2021, Spring 2022</span></div>
+</li>
+        <li><div class="entry-heading"><span>Practical Research on Military Task (A1610)</span><span class="entry-meta">Fall 2020, Fall 2021</span></div>
+</li>
+      </ul>
+</li>
+        <li><strong>Seoul National University</strong><div class="affiliation">Department of Mechanical Engineering</div>
+<div class="entry-heading"><span>Teaching Assistant</span><span class="entry-meta">Mar. 2018–Dec. 2018</span></div>
+      <ul class="course-list">
+        <li><div class="entry-heading"><span>Mechanical System Design Project 2 (M2794.004300)</span><span class="entry-meta">Fall 2018</span></div>
+</li>
+        <li><div class="entry-heading"><span>Mechanical System Design Project 1 (M2794.004200)</span><span class="entry-meta">Spring 2018</span></div>
+</li>
+        <li><div class="entry-heading"><span>Fluid Mechanics (M2794.001300)</span><span class="entry-meta">Spring 2018</span></div>
+</li>
+      </ul>
+</li>
       </ul>
     </section>
 
     <section class="pub-category">
       <h2>Mentoring Experience</h2>
       <ul class="entry-list">
-        <li><div class="entry-heading"><span><strong>Hsin-Er Kuo</strong>, Georgia Institute of Technology</span><span class="entry-date">Aug. 2025–Present</span></div>      <ul class="detail-list">
+        <li><div class="entry-heading"><span><strong>Hsin-Er Kuo</strong>, Georgia Institute of Technology</span><span class="entry-meta">Aug. 2025–Present</span></div>
+      <ul class="detail-list">
         <li>Provided mentorship in frequency-domain thermoreflectance (FDTR).</li>
-      </ul></li>
+      </ul>
+</li>
       </ul>
     </section>
 
     <section class="pub-category">
       <h2>Teaching Certifications</h2>
       <ul class="entry-list">
-        <li><div class="entry-heading"><span><strong>Tech to Teaching</strong>, Georgia Institute of Technology</span><span class="entry-date">Mar. 2025</span></div>      <ul class="detail-list">
+        <li><div class="entry-heading"><span><strong>Tech to Teaching</strong>, Georgia Institute of Technology</span><span class="entry-meta">Mar. 2025</span></div>
+      <ul class="detail-list">
         <li>Completed a capstone teaching practicum in Heat Transfer (ME 3345), designing and delivering four sessions with over 90% positive student feedback.</li>
-      </ul></li>
-        <li><div class="entry-heading"><span><strong>CIRTL Associate</strong>, Center for the Integration of Research, Teaching, and Learning (CIRTL)</span><span class="entry-date">Mar. 2025</span></div>      <ul class="detail-list">
+      </ul>
+</li>
+        <li><div class="entry-heading"><span><strong>CIRTL Associate</strong>, Center for the Integration of Research, Teaching, and Learning (CIRTL)</span><span class="entry-meta">Mar. 2025</span></div>
+      <ul class="detail-list">
         <li>Completed foundational training in evidence-based teaching and inclusive pedagogy.</li>
-      </ul></li>
+      </ul>
+</li>
       </ul>
     </section>
   </main>
