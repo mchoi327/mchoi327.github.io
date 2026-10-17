@@ -6,11 +6,7 @@
       const response = await fetch('header.html', { cache: 'no-store' });
       if (!response.ok) throw new Error('Header request failed');
       container.innerHTML = await response.text();
-      const button = container.querySelector('.menu-toggle');
       const nav = container.querySelector('nav');
-      button.addEventListener('click', () => {
-        button.setAttribute('aria-expanded', String(nav.classList.toggle('open')));
-      });
       const current = location.pathname.split('/').pop() || 'index.html';
       nav.querySelectorAll('a').forEach(link => {
         if (link.getAttribute('href') === current) link.setAttribute('aria-current', 'page');
@@ -48,35 +44,23 @@
       const latest = Array.from(doc.querySelectorAll('article.news-card'))
         .map(article => ({ article, date: Date.parse(article.querySelector('time')?.getAttribute('datetime')) }))
         .filter(item => Number.isFinite(item.date))
-        .sort((a, b) => b.date - a.date)[0]?.article;
-      if (!latest) throw new Error('No dated news found');
+        .sort((a, b) => b.date - a.date)
+        .slice(0, 3);
+      if (!latest.length) throw new Error('No dated news found');
 
-      const card = document.createElement('article');
-      const image = latest.querySelector('img');
-      card.className = image ? 'news-card-lite' : 'news-card-lite news-card-text';
-      if (image) {
-        const thumb = document.createElement('div');
-        thumb.className = 'news-thumb';
-        thumb.append(image.cloneNode(true));
-        card.append(thumb);
+      const list = document.createElement('ul');
+      list.className = 'recent-news-list';
+      for (const { article } of latest) {
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = article.id ? `news.html#${article.id}` : 'news.html';
+        link.textContent = article.querySelector('h3').textContent.trim();
+        item.append(article.querySelector('time').cloneNode(true), link);
+        list.append(item);
       }
-      const meta = document.createElement('div');
-      meta.className = 'news-meta';
-      const heading = document.createElement('h3');
-      const link = document.createElement('a');
-      link.className = 'news-card-link';
-      link.href = latest.id ? `news.html#${latest.id}` : 'news.html';
-      link.textContent = latest.querySelector('h3').textContent.trim();
-      heading.append(link);
-      meta.append(latest.querySelector('time').cloneNode(true), heading);
-      const summary = latest.querySelector('p');
-      if (summary) meta.append(summary.cloneNode(true));
-      const more = latest.querySelector('.btn');
-      if (more) meta.append(more.cloneNode(true));
-      card.append(meta);
-      mount.replaceChildren(card);
+      mount.replaceChildren(list);
     } catch (error) {
-      // Keep the static News link visible when fetching or parsing fails.
+      // The archive link remains available when fetching or parsing fails.
       console.error('Recent news load failed:', error);
     }
   }
