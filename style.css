@@ -54,10 +54,10 @@ main { padding: 0 var(--space-medium); }
 .site-header nav a[aria-current='page'] { text-decoration: underline; text-underline-offset: 0.35em; }
 .hero { padding: var(--space-medium) var(--space-medium) 0; text-align: left; }
 .hero + main > :first-child { margin-top: var(--space-medium); }
-.hero-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-medium); }
-.profile-frame { width: 160px; height: 200px; flex-shrink: 0; overflow: hidden; }
+.hero-inner { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: var(--space-medium); }
+.profile-frame { position: relative; overflow: hidden; }
 /* Frame the uncropped source around the face without modifying the image file. */
-.profile-photo { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(2.8); transform-origin: 43% 58%; }
+.profile-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(3.4); transform-origin: 43% 50%; }
 .home-intro { margin-top: var(--space-medium); }
 .home-intro > p { margin-top: var(--space-medium); }
 .research-topics > li + li { margin-top: var(--space-medium); }
@@ -97,7 +97,8 @@ main { padding: 0 var(--space-medium); }
 footer { padding: var(--space-medium); text-align: center; color: var(--color-muted); font-size: 0.875rem; }
 
 @media (max-width: 600px) {
-  .hero-inner { flex-direction: column; align-items: flex-start; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .profile-frame { width: 116px; aspect-ratio: 4 / 5; }
   .entry-heading { display: block; }
   .entry-heading > span { display: block; }
   .entry-meta { text-align: left; margin-left: 0; }
