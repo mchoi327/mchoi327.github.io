@@ -73,6 +73,32 @@ main { padding: 0 var(--space-medium); }
 .hero-links a { font-weight: 600; white-space: nowrap; }
 .hero-links > span { margin-inline: 0.25em; }
 
+/* Research themes share one overview above the detailed sections. */
+.research-overview { margin: var(--space-large) 0 0; }
+.research-overview > h2 { margin-bottom: var(--space-medium); }
+.research-overview .theme-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-medium); }
+.research-overview .theme { min-width: 0; border-top: 2px solid var(--color-primary); padding-top: 0.75rem; }
+.research-overview .theme h3 { margin-top: 0.5rem; min-height: 3.9em; font-size: 1.25rem; }
+.research-overview .theme-illustration { display: block; width: 100%; height: 146px; margin: 0.75rem 0 0; }
+.research-overview .schematic-label { min-height: 3em; margin-top: 0.25rem; color: var(--color-muted); font-size: 0.875rem; line-height: 1.5; text-align: center; }
+.research-overview .theme-description { margin-top: var(--space-medium); }
+.research-overview .theme-link { display: inline-block; margin-top: var(--space-small); font-weight: 600; }
+.research-overview .shared-theme { position: relative; margin-top: 2rem; padding-top: 1.4rem; text-align: center; }
+.research-overview .shared-theme::before { content: ''; position: absolute; top: 0; left: 16.67%; right: 16.67%; height: 0.55rem; border: 1px solid #9baec6; border-top: 0; }
+.research-overview .shared-theme::after { content: ''; position: absolute; top: 0.55rem; left: 50%; height: 0.6rem; border-left: 1px solid #9baec6; }
+.research-overview .shared-theme strong { color: var(--color-primary); }
+.research-overview figcaption { max-width: 38rem; margin: 0.5rem auto 0; color: var(--color-muted); font-size: 0.875rem; text-align: center; }
+@media (max-width: 700px) {
+  .research-overview .theme-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .research-overview .theme h3 { min-height: 0; max-width: 28rem; }
+  .research-overview .theme-illustration { max-width: 280px; height: 160px; margin-inline: auto; }
+  .research-overview .schematic-label { min-height: 0; }
+  .research-overview .theme-description { margin-top: 1rem; }
+  .research-overview .shared-theme { padding-top: 1.25rem; border-top: 1px solid #9baec6; }
+  .research-overview .shared-theme::before, .research-overview .shared-theme::after { display: none; }
+  .research-overview figcaption { text-align: left; }
+}
+
 /* Numbered news links remain independently focusable inside one wrapping badge. */
 .badges { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-small); margin-right: var(--space-small); }
 .badge { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0.25em; padding: 0.25rem 0.5rem; border: 1px solid currentColor; border-radius: 0.35rem; background: var(--color-bg); font-size: 0.875rem; font-weight: 600; line-height: 1.4; }
