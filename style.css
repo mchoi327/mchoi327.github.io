@@ -97,6 +97,13 @@ main { padding: 0 var(--space-medium); }
 footer { padding: var(--space-medium); text-align: center; color: var(--color-muted); font-size: 0.875rem; }
 
 @media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .site-header nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; padding-bottom: var(--space-small); }
+  .site-header nav a { display: flex; align-items: center; min-height: 2.75rem; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: var(--space-small) var(--space-medium); }
+  .hero-links a { display: inline-flex; align-items: center; min-height: 2rem; }
+  .hero-links > span { display: none; }
   .hero-inner { grid-template-columns: minmax(0, 1fr); }
   .profile-frame { width: 116px; aspect-ratio: 4 / 5; }
   .entry-heading { display: block; }
