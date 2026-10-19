@@ -27,7 +27,6 @@
       const match = typeof file === 'string' && file.match(/^(\d{4})(\d{2})(\d{2})_CV_Mingeun_Choi\.pdf$/);
       if (!match) throw new Error('Invalid document filename');
       cv.href = `files/${file}`;
-      cv.download = `Mingeun_Choi_CV_${match[1]}-${match[2]}-${match[3]}.pdf`;
     } catch (error) {
       // Static links remain usable if the manifest cannot be loaded.
       console.error('Document link manifest load failed:', error);
