@@ -10,7 +10,7 @@ Built with HTML, CSS, and JavaScript. Published through GitHub Pages from the `m
 - `news.html`: news archive; the latest three entries also appear on Home.
 - `header.html`, `style.css`, `site.js`: shared navigation, styles, and interactions.
 - `files/`: CV and download manifest.
-- `images/`: profile and news photos.
+- `images/`: profile and news photos. News images use `news_YYYYMMDD_event.ext`, matching the date of the news item.
 
 ## Local preview
 
