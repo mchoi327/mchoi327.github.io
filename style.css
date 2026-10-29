@@ -20,7 +20,7 @@ h1, h2, h3, p, ul { margin: 0; }
 h1, h2, h3 { font-family: var(--font-heading); color: var(--color-primary); line-height: 1.3; }
 h1 { font-size: 2.5rem; }
 h2 { font-size: 1.75rem; }
-h3 { font-size: 1.25rem; }
+h3, .news-content h2 { font-size: 1.25rem; }
 strong { font-weight: 600; }
 a { color: var(--color-accent); text-decoration: none; overflow-wrap: anywhere; }
 a:hover { text-decoration: underline; }
@@ -117,7 +117,7 @@ main { padding: 0 var(--space-medium); }
 .news-placeholder { display: grid; place-items: center; color: var(--color-muted); font-size: 0.875rem; }
 .news-content { padding: var(--space-medium); }
 .news-content > * + * { margin-top: var(--space-small); }
-.news-content h3 a { color: inherit; }
+.news-content h2 a { color: inherit; }
 .news-content time { display: block; color: var(--color-muted); font-size: 0.875rem; }
 .btn { display: inline-block; padding: var(--space-small) 0; font-weight: 600; }
 footer { padding: var(--space-medium); text-align: center; color: var(--color-muted); font-size: 0.875rem; }

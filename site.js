@@ -53,7 +53,7 @@
         const item = document.createElement('li');
         const link = document.createElement('a');
         link.href = article.id ? `news.html#${article.id}` : 'news.html';
-        link.textContent = article.querySelector('h3').textContent.trim();
+        link.textContent = article.querySelector('h2').textContent.trim();
         item.append(article.querySelector('time').cloneNode(true), link);
         list.append(item);
       }
