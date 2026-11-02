@@ -74,6 +74,11 @@
       button.addEventListener('click', () => {
         abstract.hidden = !abstract.hidden;
         button.setAttribute('aria-expanded', String(!abstract.hidden));
+        if (!abstract.hidden && typeof window.gtag === 'function') {
+          window.gtag('event', 'abstract_open', {
+            publication_id: abstract.id.replace(/^abstract-/, '')
+          });
+        }
       });
     });
   }
