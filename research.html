@@ -112,28 +112,23 @@
           </section>
         </div>
         <div class="shared-theme"><strong>Thermal Science and Engineering for Advanced Microelectronics</strong></div>
-        <figcaption>Three complementary research themes; schematics are illustrative.</figcaption>
+        <figcaption>The schematics illustrate the three research themes.</figcaption>
       </figure>
       <section class="content-section" id="thin-films">
         <h2>Materials and Interfaces</h2>
-        <p>Thermal models depend on material properties that can differ substantially from bulk values in nanoscale films. Measuring these properties helps connect material development with device and package design.</p>
-        <p>I am developing a physics-informed neural network surrogate for frequency-domain thermoreflectance (FDTR) to estimate depth-dependent thermal properties of thin films. My collaborative work also investigates aluminum nitride and vertically aligned hexagonal boron nitride films for thermal management.</p>
-        <p class="related-links">Related work: <a href="publications.html#journal2">Thermally conductive AlN films</a> · <a href="publications.html#journal11">Quasi-ballistic transport in h-BN</a></p>
+        <p>Thermal properties in nanoscale films can differ substantially from bulk values, and frequency-domain thermoreflectance (FDTR) estimates these properties through inverse analysis of measured surface responses. I develop a physics-informed neural network surrogate for FDTR to estimate depth-dependent thermal properties. My collaborative work examines the relationship between grain orientation and thermal conductivity in aluminum nitride films, and quasi-ballistic heat transport in vertically aligned hexagonal boron nitride.</p>
+        <p class="related-links">Related work: <a href="publications.html#journal4">Machine learning for thermal-property inversion</a> · <a href="publications.html#journal2">Thermally conductive AlN films</a> · <a href="publications.html#journal11">Quasi-ballistic transport in h-BN</a></p>
       </section>
       <section class="content-section" id="thermal-modeling">
         <h2>Devices and Circuits</h2>
-        <p>Self-heating and thermal crosstalk affect device performance, yet repeatedly resolving transient temperature fields is computationally expensive.</p>
-        <p>I develop deep operator network (DeepONet) models to predict spatiotemporal temperature fields in FinFET arrays. The models learn from numerical simulations to predict temperature responses to power dissipation.</p>
-        <p>For a 3.5 ns transient response in FinFET arrays, our trained surrogate achieved approximately 2,500-fold speedup over the finite-volume solver, with over 92% of nodal errors below 3 K. Collaborative device-to-circuit work examines how self-heating in gate-all-around nanosheet transistors with backside power delivery affects circuit performance.</p>
+        <p>Self-heating and thermal crosstalk affect the performance of fin field-effect transistor (FinFET) arrays, yet repeated transient simulations are computationally expensive. I develop deep operator network (DeepONet) models that learn from finite-volume simulations to map the current temperature field and power dissipation profile to the temperature field at the next time step. For a 3.5 ns transient response, the trained model achieved approximately 2,500-fold speedup over the finite-volume solver, with over 92% of nodal errors below 3 K. Collaborative device-to-circuit work examines how self-heating in gate-all-around nanosheet transistors with backside power delivery affects circuit performance.</p>
         <p class="related-links">Related work: <a href="publications.html#journal9">FinFET temperature-field prediction</a> · <a href="publications.html#proceedings10">Nanosheet device-to-circuit analysis</a></p>
       </section>
       <section class="content-section" id="power-delivery">
         <h2>Packages and Systems</h2>
-        <p>Bringing power conversion closer to a processor shortens electrical paths, but also concentrates heat beneath the chip. Power delivery and cooling therefore need to be evaluated together.</p>
-        <p>I develop automated, self-consistent electrothermal models of distributed vertical power delivery architectures with substrate-embedded microfluidic cooling. These models connect electrical losses, temperature-dependent device behavior, and cooling requirements to evaluate design choices.</p>
-        <p>In our study of a 48-to-1 V architecture supplying 1 kW, accounting for electrothermal coupling increased the predicted system losses by about 15.8% relative to the initial uncoupled estimate, demonstrating why thermal feedback matters to system design.</p>
-        <p>For vertical power delivery modules, I develop DeepONet models to predict temperature fields, infer spatial power loading from temperature observations, and identify operating states that satisfy temperature limits.</p>
-        <p>I develop STREAM, a numerical solver that computes transient temperatures using prescribed velocity fields, and DeepONet models with rationally enriched Chebyshev trunk bases for high-Péclet-number heat transfer.</p>
+        <p>Power conversion close to a processor shortens electrical paths but concentrates heat beneath the chip. I develop automated, self-consistent electrothermal models of distributed vertical power delivery architectures with substrate-embedded microfluidic cooling. These models capture the feedback between device temperatures and electrical losses to determine cooling requirements. For a 48-to-1 V architecture at a 1 kW load, the coupled model predicted about 15.8% higher system losses than the initial uncoupled estimate.</p>
+        <p>At the same total module power, changes in spatial power loading can alter local temperatures. I develop DeepONet models for temperature prediction and use the models to infer spatial power loading from temperature observations. The predictions also guide the selection of candidate operating states within component temperature limits.</p>
+        <p>I develop STREAM, a numerical solver for transient heat transfer with prescribed velocity fields, and rationally enriched Chebyshev trunk bases for DeepONet models of high-Péclet-number entrance transport.</p>
         <p class="related-links">Related work: <a href="publications.html#journal8">Self-consistent electrothermal modeling</a> · <a href="publications.html#journal10">Vertical power delivery design framework</a> · <a href="publications.html#proceedings4">Embedded microchannel cooling</a> · <a href="publications.html#proceedings12">DeepONet for vertical power delivery</a> · <a href="publications.html#under1">Bidirectional power-state and temperature analysis</a> · <a href="publications.html#under3">STREAM</a> · <a href="publications.html#under2">Rationally enriched DeepONet</a></p>
       </section>
       <section class="content-section">
