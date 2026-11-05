@@ -24,8 +24,7 @@
       if (!response.ok) throw new Error('Could not load files manifest');
       const manifest = await response.json();
       const file = manifest.cv;
-      const match = typeof file === 'string' && file.match(/^(\d{4})(\d{2})(\d{2})_CV_Mingeun_Choi\.pdf$/);
-      if (!match) throw new Error('Invalid document filename');
+      if (file !== 'CV_Mingeun_Choi.pdf') throw new Error('Invalid document filename');
       cv.href = `files/${file}`;
     } catch (error) {
       // Static links remain usable if the manifest cannot be loaded.
